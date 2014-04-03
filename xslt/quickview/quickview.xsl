@@ -14,7 +14,9 @@
         java -Xms512m -Xmx1536m net.sf.saxon.Transform -xsl:xslt/quickview.xsl -o:data/quickview.html -it:START > LOG/LOG_QUICKVIEW 2>&1 && cp data/quickview.html /Volumes/Documents/DCLP/data
     -->
 
+    <xsl:param name="datadir">../data/</xsl:param>
     <xsl:template name="START">
+        <xsl:message>trying to use datadir="<xsl:value-of select="$datadir"/>"</xsl:message>
         <html>
             <head>
                 <title>DCLP metadata quickview</title>
@@ -58,7 +60,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <xsl:for-each select="collection('../data/meta?select=*.xml;recurse=yes')">
+                        <xsl:variable name="query">
+                            <xsl:text></xsl:text><xsl:value-of select="$datadir"/>?recurse=yes;select=*.xml<xsl:text></xsl:text>
+                        </xsl:variable>
+                        <xsl:message>query="<xsl:value-of select="$query"/>"</xsl:message>
+                        <xsl:for-each select="collection($query)">
+                        <!-- <xsl:for-each select="collection('file:///Users/paregorios/Documents/files/D/dclp/dev/dclpxsltbox/data/?recurse=yes;validation=strip;select=*.xml')"> -->
+                            <xsl:message>each: <xsl:value-of select="document-uri(.)"/></xsl:message>
                             <xsl:variable name="doc" select="."/>
                             <tr>
                                 <td>
