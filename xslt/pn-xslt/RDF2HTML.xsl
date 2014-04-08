@@ -128,12 +128,17 @@
   
   <xsl:output method="html"/>
   
+
   <xsl:template match="/">
+    <!-- set variables to control dispatch of transformation based on context -->
+    <xsl:variable name="apis" select="$collection = 'apis' or contains($related, '/apis/')"/>
+    <xsl:variable name="dclp" select="$collection = 'dclp'"/>
     <xsl:variable name="ddbdp" select="$collection = 'ddbdp'"/>
     <xsl:variable name="hgv" select="$collection = 'hgv' or contains($related, 'hgv/')"/>
-    <xsl:variable name="apis" select="$collection = 'apis' or contains($related, '/apis/')"/>
-    <xsl:variable name="translation" select="contains($related, 'hgvtrans') or (contains($related, 'apis') and pi:get-docs($relations[contains(., 'apis')], 'xml')//t:div[@type = 'translation']) or //t:div[@type = 'translation']"/>
     <xsl:variable name="image" select="count($imgs) gt 0"/>
+    <xsl:variable name="translation" select="contains($related, 'hgvtrans') or (contains($related, 'apis') and pi:get-docs($relations[contains(., 'apis')], 'xml')//t:div[@type = 'translation']) or //t:div[@type = 'translation']"/>
+    
+    <!-- start writing the output file -->
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;
  </xsl:text>
    
