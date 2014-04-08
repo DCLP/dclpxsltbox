@@ -227,11 +227,11 @@
             <div id="main">
               <div class="content ui-corner-all">
                 <h3 style="text-align:center"><xsl:call-template name="get-references"></xsl:call-template></h3>
-                <xsl:if test="$hgv or $apis">
+                <xsl:if test="$hgv or $apis or $dclp">
                   <h4 style="text-align:center" id="titledate"></h4>
                 </xsl:if>
                 <div id="controls" class="ui-widget">
-                  <xsl:if test="$hgv or $apis">
+                  <xsl:if test="$hgv or $apis or $dclp">
                     <div id="metadatacontrols" class="ui-widget-content ui-corner-all">
                       <label for="mdt">metadata</label><input type="checkbox" name="metadata" id="mdt" checked="checked"/><br/>
                       <xsl:if test="$hgv">
@@ -240,12 +240,15 @@
                       <xsl:if test="$apis">
                         <label for="apism">APIS catalog record</label><input type="checkbox" name="apis" id="apism" checked="checked"/>
                       </xsl:if>
+                      <xsl:if test="$dclp">
+                        <label for="dclpm">DCLP data</label><input type="checkbox" name="dclp" id="dclpm" checked="checked"/>
+                      </xsl:if>
                     </div>
                   </xsl:if>
-                  <xsl:if test="$ddbdp or $image or $translation">
+                  <xsl:if test="$ddbdp or $image or $translation or $dclp">
                     <div id="textcontrols" class="ui-widget-content ui-corner-all">
                       <label for="txt">text</label><input type="checkbox" name="text" id="txt" checked="checked"/><br/>
-                      <xsl:if test="$ddbdp">
+                      <xsl:if test="$ddbdp or $dclp">
                         <label for="tcpt">transcription</label><input type="checkbox" name="transcription" id="tcpt" checked="checked"/>
                       </xsl:if>
                       <xsl:if test="$image">
@@ -405,6 +408,9 @@
                       <xsl:apply-templates select="/t:TEI" mode="apistrans"/>
                     </xsl:if>
                   </div>
+                </xsl:if>
+                <xsl:if test="$dclp">
+                  foooooooooo                  
                 </xsl:if>
               </div>
             </div>
