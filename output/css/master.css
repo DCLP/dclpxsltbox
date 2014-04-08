@@ -1,0 +1,865 @@
+@import url("custom-theme/jquery-ui-1.8.14.custom.css");
+@import url("jquery.bubblepopup.v2.1.5.css");
+@import url("yui/reset-fonts-grids.css");
+
+html {
+background: #ccc;
+}
+body {
+color: #3c2217;
+font-family: Georgia, serif;
+font-size: 100%;
+min-height: 100%;
+}
+div#hd, div#header {
+background: url("/images/header.jpg");
+color: white;
+/*background: #5C0303;*/
+font-family: Georgia, serif;
+height:85px;
+text-align:left;
+}
+
+#hd h1 {
+cursor:pointer;
+float:left;
+margin-left: 0.5em;
+margin-bottom: 0;
+padding:0.1em;
+}
+#hd h2 {
+float:left;
+font-size:138.5%;
+margin-left: 1.5em;
+margin-top: 1.3em;
+font-style:italic;
+}
+#hd h2 a {
+color:#DEB6B6;
+}
+h2, h3, h4 {
+font-family: "Lucida Grande", "Arial Unicode MS", Verdana, Cardo, Arial, Helvetica, sans-serif;
+}
+div#bd {
+min-height: 8em;
+}
+
+h2#title {
+color: #3c2217;
+font-family: "Lucida Grande", "Arial Unicode MS", Verdana, Cardo, Arial, Helvetica, sans-serif;
+position: absolute;
+top: 1em;
+width: 100%;
+text-align: center;
+}
+
+h2#login {
+font-family: Georgia, serif;
+font-size: 100%;
+font-style:normal;
+color:white;
+position:absolute;
+top:-15px;
+right:1em;
+}
+
+h2#login a {
+color:white;
+}
+
+div.content {
+background: #f8f6f4;
+float:left;
+text-align:left;
+padding-bottom:1em;
+width:100%;
+}
+
+div.content p {
+  margin:1em;
+}
+
+div.content h2 {
+font-size: 108%;
+font-weight: bold;
+border-top: thin solid silver;
+margin-bottom: 0.25em;
+margin-left:-.5em;
+margin-right:.5em;
+margin-top:.5em;
+}
+
+div.search h2 {
+font-size:167%;
+border:none;
+font-weight:normal;
+margin-left:0.6em;
+float: left;
+}
+
+div.content h3 {
+font-size: 123.1%;
+margin-top:1em;
+}
+
+div.search h3 {
+  margin-left:0.5em;
+}
+
+div.content h4 {
+font-family: Georgia,serif;
+font-size: 96%;
+font-weight: bold;
+}
+
+div#search {
+text-align:center;
+}
+
+div.search {
+font-size:93%;
+}
+
+div.search p {
+margin-left:1em;
+padding:4px;
+}
+
+p#sort-options label {
+  font-size:77%;
+}
+
+input.type, input.target, input.img-select {
+  margin-left:1em;
+}
+
+div#help {
+  display:none;
+}
+
+/* Top Navigation */
+div.nav {
+background:#ccc;
+position: absolute; 
+left: 0px;
+top: 67px;
+padding:0;
+text-align:left;
+width:100%;
+-moz-border-radius-topleft: 8px;
+-webkit-border-top-left-radius: 8px;
+border-top-left-radius: 8px;
+-moz-border-radius-topright: 8px;
+-webkit-border-top-right-radius: 8px;
+border-top-right-radius: 8px;
+}
+ul.nav {
+display: inline;
+background-position: bottom;
+color: black;
+font-size: 93%;
+line-height:25px;
+margin-left:2em;
+padding:0;
+}
+ul.nav li {
+display: inline;
+padding-left: 0.4em;
+padding-right: 0.4em;
+padding-top:0.2em;
+padding-bottom:0.5em;
+margin-bottom:0;
+margin-top:0;
+}
+ul.nav li.current {
+background:#F8F6F4;
+}
+
+div.nav a {
+color: #5C0303;
+text-decoration: none;
+}
+/* Images */
+div#olimage {
+width: 512px;
+height: 512px;
+}
+
+div.about {
+float: left;
+margin-left: 20%;
+}
+div.info {
+float: left;
+margin-left: 10%;
+}
+.papyriDotInfo {
+color: maroon;
+font-family: Georgia, serif;
+font-size: 167%;
+}
+ul.about {
+line-height: 24px;
+margin-left: 5px;
+}
+a {
+color: #162A5C;
+}
+a:visited {
+color: maroon;
+}
+h1 {
+font-size: 300%;
+}
+h2 {
+font-size: 167%;
+}
+h3 {
+font-size: 138.5%;
+}
+input.navField {
+border: thin solid gray;
+font-size: 85%;
+width: 4em;
+}
+input.navButton {
+border: thin solid gray;
+font-size: 85%;
+font-weight: bold;
+}
+select#APIS-Collection {
+border: thin solid gray;
+font-size: 85%;
+}
+
+p.prose {
+  padding:0.75em;
+  text-align:justify;
+}
+ul.prose {
+  margin-left:2em;
+  padding:0.5em;
+}
+
+/* View Page */
+div#controls {
+font-size: 70%;
+line-height: 1.4;
+margin-left:1em;
+}
+div#controls div {
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 0.25em;
+padding-bottom: 0.5em;
+float: left;
+margin-right: 1em;
+margin-top: 0.25em;
+margin-bottom: 0.25em;
+}
+div#controls div label {
+margin-left: 1em;
+}
+div#controls div label:first-child {
+font-weight: bold;
+margin-left: -0.25em;
+}
+
+div#editthis {
+height: 32px;
+font-size:larger;
+}
+
+div#tabs {
+clear: both;
+float: left;
+margin: 0;
+width: 99%;
+}
+
+div.text {
+clear: both;
+float: left;
+margin: 0;
+width: 100%;
+}
+div.text div.data {
+float: left;
+margin-top: 0.5em;
+min-width: 350px;
+}
+div.image {
+width: 49%;
+margin-left:1em;
+}
+div.transcription {
+margin-left:1em;
+margin-right: 0.5em;
+width: 48%;
+}
+div.translation {
+margin-left:1em;
+width: 48%;
+}
+div.metadata {
+clear: both;
+float: left;
+margin-left:.5em;
+}
+div.metadata div {
+margin-top: 0.5em;
+}
+div.metadata th {
+vertical-align: top;
+font-weight: bold;
+width: 20%;
+}
+div#edition {
+margin-left: 3em;
+}
+div.biblio {
+margin:1em;
+}
+div.bp-cite {
+border:thin solid silver;
+margin:2em;
+padding:1em;
+}
+div#ld {
+clear: both;
+float: left;
+margin-left: 1em;
+width: 100%;
+}
+div#ld h2 {
+margin-right:1.5em;
+}
+div#ld p {
+margin:0.3em;
+font-family: Verdana, Helvetica, sans-serif;
+font-size: 80%;
+}
+
+/* Copied from http://papyri.info/global.css */
+.latinnum {
+border-top: thin black solid;
+}
+     
+.previouslyread {
+text-decoration: underline;
+}
+
+.supraline { border-top: thin black solid; }
+     
+*[lang="la"] {
+font-family: "GentiumAlt", "Gentium","Palatino Linotype", "Palatino", "Times New Roman", "Times", "Arial Unicode MS", serif;
+}
+
+*[lang="grc"] {
+font-family: "Lucida Grande", "Cardo", "Arial Unicode MS","Galilee Unicode Gk", "New Athena Unicode", "Athena Unicode", 
+    "Palatino Linotype", "Titus Cyberbit Basic", "Vusillus Old Face", "Alphabetum", "Galatia SIL", 
+    "Code 2000", "GentiumAlt", "Gentium", "Minion Pro", "GeorgiaGreek", "Vusillus Old Face Italic", 
+    "Everson Mono", "Aristarcoj", "Porson", "Legendum", "Aisa Unicode", "Hindsight Unicode", "Caslon", 
+    "Verdana", "Tahoma";
+}
+   
+*[lang="cop"] {
+    font-family: "Antinoou", "IFAO-Grec Unicode", "Gentium Plus", "Gentium", "New Athena Unicode", "Times New Roman";
+}
+
+div.textpart {
+font-family: "Lucida Grande", "Cardo", "Arial Unicode MS","Galilee Unicode Gk", "New Athena Unicode", "Athena Unicode", 
+    "Palatino Linotype", "Titus Cyberbit Basic", "Vusillus Old Face", "Alphabetum", "Galatia SIL", 
+    "Code 2000", "GentiumAlt", "Gentium", "Minion Pro", "GeorgiaGreek", "Vusillus Old Face Italic", 
+    "Everson Mono", "Aristarcoj", "Porson", "Legendum", "Aisa Unicode", "Hindsight Unicode", "Caslon", 
+    "Verdana", "Tahoma";
+line-height: 1.4;
+vertical-align: -20%;
+margin-bottom: 8px;
+padding: 0px;
+}
+
+div#apparatus {
+font-family: "Lucida Grande", "Cardo", "Arial Unicode MS","Galilee Unicode Gk", "New Athena Unicode", "Athena Unicode", 
+    "Palatino Linotype", "Titus Cyberbit Basic", "Vusillus Old Face", "Alphabetum", "Galatia SIL", 
+    "Code 2000", "GentiumAlt", "Gentium", "Minion Pro", "GeorgiaGreek", "Vusillus Old Face Italic", 
+    "Everson Mono", "Aristarcoj", "Porson", "Legendum", "Aisa Unicode", "Hindsight Unicode", "Caslon", 
+    "Verdana", "Tahoma";
+}
+
+span#all-history:hover, span#edit-history:hover {
+background:#f9e4a0;
+cursor:pointer;
+}
+
+span.textpartnumber {
+display: block;
+line-height: 1;
+margin-left: -3em;
+margin-bottom: 0;
+}
+    
+.linenumber {
+float: left;
+margin-left: -2em;
+}
+
+.linenumberbroken {
+color: red;
+float: left;
+margin-left: -2em;
+}
+
+    
+.underline {
+text-decoration: underline;
+}
+
+.italic {
+font-style: italic;
+}
+
+/* Search Results */
+ul.results {
+  margin-left:0.5em;
+}
+
+ul.results li {
+  font-size:85%;
+  padding:0.5em;
+}
+
+ul.results a {
+  font-size:123.1%;
+}
+
+span.highlight {
+background: orange;
+}
+
+span.term {
+  border: thin solid gray;
+}
+
+span.resulthead {
+  background:#e8e8e8;
+  display:block;
+  margin-left:-2px;
+  padding:2px;
+  width:100%;
+}
+
+div#examples {
+  font-size: 77%;
+}
+
+div#examples h3 {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+div#examples li {
+  margin-left:0.5em;
+  padding:0.25em;
+}
+
+a.button {
+  color:black;
+}
+
+p.rights {
+  font-size:77%;
+}
+
+table#resources {
+  font-size: 93%;
+}
+
+table#resources h1 {
+  font-size:138.5%;
+}
+
+table#resources p {
+  padding:0.25em;
+}
+
+div#related h4 {
+  font-family: "Lucida Grande", "Arial Unicode MS", Verdana, Cardo, Arial, Helvetica, sans-serif;
+}
+
+/* Browse / Search results */
+#pagination{
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+#pagination div {
+  width: 30px;
+  min-width: 30px;
+  height: 25px;
+  float: left;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom:4px;
+  padding:5px 4px 0px 4px;
+  text-align: center;
+}
+
+div.page {
+background:#F9F9F9;
+border:thin solid #DDD;
+}
+
+div.current {
+border:1px solid black;
+}
+
+.search table{
+  background:white;
+  border:thin solid silver;
+  margin-bottom: 2em;
+  margin-left:auto;
+  margin-right:auto;
+  width:95%;
+  clear: left;  
+}
+.tablehead{
+
+  font-weight: bold;
+
+}
+.tablehead td{
+  
+  text-align: center;
+  padding-bottom: 10px;
+
+}
+
+tr.result-record {
+  border-top:thin solid silver;
+}
+
+.search td{
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height:1.5em;
+}
+
+td.kwic {
+  font-family: "Lucida Grande", "Cardo", "Arial Unicode MS","Galilee Unicode Gk", "New Athena Unicode", "Athena Unicode", 
+    "Palatino Linotype", "Titus Cyberbit Basic", "Vusillus Old Face", "Alphabetum", "Galatia SIL", 
+    "Code 2000", "GentiumAlt", "Gentium", "Minion Pro", "GeorgiaGreek", "Vusillus Old Face Italic", 
+    "Everson Mono", "Aristarcoj", "Porson", "Legendum", "Aisa Unicode", "Hindsight Unicode", "Caslon", 
+    "Verdana", "Tahoma";
+  padding-left: 1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+.ddbdp-ids, .hgv-ids, .apis-ids, .has-translation, .language{
+
+  text-align: center;
+
+}
+
+.collections-column{
+  width: 15%;
+  padding-left:1%;
+  padding-right:1%;
+  padding-top:1em;
+  float: left;
+  margin-top: .5em;
+  margin-left:.5em;
+}
+
+.code {
+  font-family: "Courier New", Courier, monospace;
+}
+
+
+/* FOOTER STYLES */
+
+/* footer general layout */
+
+ #footer{
+     
+     background-color: #888;
+     font-family: Verdana, Helvetica, sans-serif;
+     font-size: 80%;
+     color: #fff;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     position: relative;
+     padding: 0.5em;
+     opacity: 0.8;
+     padding: .5em;
+ }
+
+
+#footer-left-col{
+    
+    width: 57%;
+    position: relative;
+    float: left;
+    padding-left: 3%
+
+}
+
+#footer-right-col{
+    
+    position: relative;
+    float: right;
+    width: 33%;
+    padding-left: 5%;
+    padding-right: 2%;
+    border-left: thin solid #fff;
+    font-size: 80%;
+    text-align: right;
+}
+
+.spacer{
+    
+   width: 100%;
+   clear: both; 
+   height: 1px;
+    
+}
+
+#footer p{
+    
+    margin-bottom: 0.5em;
+    
+}
+
+/* styles for all footer navigation */
+
+#footer ul.nav{
+    
+    list-style-type: none;
+    position: relative;
+    width: 80%;
+    color: #fff;
+    background-image: none;
+    border: none;
+
+}
+
+#footer ul.nav li{
+    
+   display: block;
+    
+}
+
+#footer a:link, #footer a:visited, #footer a:hover, #footer a:active{ 
+
+    color: white;
+    
+}
+
+#footer a:link, #footer a:visited{
+    
+    text-decoration: none;
+    
+}
+
+#footer a:hover, #footer a:active{
+    
+    text-decoration: underline;
+    
+}
+
+#footer ul.nav li:before{
+    
+    content: "| ";
+    
+}
+
+/* styles for left-hand column and navigation */
+
+#footer-left-col #secondary-nav{
+    
+    width: 100%;
+    position: absolute;
+    /* this value should be lowered if it is likely
+     * that the navigation menu will wrap to a second line */
+    top: 1.6em;
+    
+}
+
+#secondary-nav ul.nav li:first-child:before{
+    
+    content: "";
+    
+}
+
+#footer-left-col #secondary-nav ul.nav{
+    
+    margin-left: 30px;
+    
+}
+
+
+#footer-left-col #secondary-nav ul.nav li{
+    
+    float: left;  
+    margin-bottom: 5px;
+    margin-right: 6px;
+    
+}
+
+/* styles for right-hand column and navigation */
+
+#footer-right-col p:first-child{
+    
+    font-weight: bold; 
+    
+}
+
+
+#footer-right-col #about-nav li, #footer #about-nav #about-hdr{
+    
+    float: right;
+}
+
+
+#about-nav ul.nav li.last-child:before{
+    
+    content: "";
+    
+}
+
+#about-hdr{
+    margin-top:2px;
+    margin-right: 5px;
+    line-height: 22px;
+    font-size: inherit;
+    font-family: inherit;
+    
+}
+
+#about-nav ul.nav li{
+    
+    margin-left: 3px;
+}
+
+/* END FOOTER STYLES  */
+
+/*  FACET CONTROLS (NB: LARGELY COPIED FROM SEARCH.HTML; CONSIDER INTEGRATING */
+
+
+/*  MORE-LIKE-THIS ADDITIONS THILL 2011.11.04 */
+
+div.metadata div.more-like-this{
+    
+    display: inline;
+    font-size: 80%;
+    font-family: inherit;
+    margin-top: 0px;
+    margin-left: 15px;
+
+}
+
+div.more-like-this a{
+    
+    margin-right: 10px;
+    
+}
+
+div.more-like-this a:before{
+    
+    content:"[";
+    
+}
+
+div.more-like-this a:after{
+    
+    content:"]";
+    
+}
+
+/* END MORE-LIKE-THIS ADDITIONS */
+
+/* LINEAR BROWSING ADDITIONS THILL 2011.12.16 */
+
+#linear-browse-wrapper{
+    
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 90%;
+    height: 25px;
+    position: relative;
+    
+}
+
+#linear-previous-record{
+    
+    float: left;
+    
+    }
+
+#linear-next-record{
+    
+    float: right;
+}
+
+#linear-back{
+    
+    position: absolute;
+    left: 42%;
+    
+}
+
+#linear-back a{
+    
+    color: #162A5C;
+    
+}
+
+#linear-browse-wrapper a{
+    
+    text-decoration: none;
+    
+}
+
+#linear-browse-wrapper a:hover{
+    
+    text-decoration: underline;
+    
+}
+
+.deadlink{
+    
+    color: #777;
+    font-style: italic;
+    
+}
+
+/* END LINEAR BROWSING ADDITIONS */
+
+/* Begin Markdown section */
+
+div.markdown {
+  margin: 1em;
+}
+div.markdown strong {
+  font-weight: bold;
+}
+
+div.markdown ul li {
+  margin-left: 2em;
+  line-height: 150%;
+  list-style-type: disc;
+}
+
+div.markdown ul.about li {
+  list-style-type: none;
+  margin-left: 0em;
+}
+
+div.markdown em {
+  font-style: italic;
+}
