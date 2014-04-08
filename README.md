@@ -14,7 +14,9 @@ XSLT files we want to play with, including:
 quickview/
 ----------
 
-Creates a single HTML tabular view of all the DCLP XML files you can point it to. Run like:
+Creates a single HTML tabular view of all the DCLP XML files you can point it to. 
+
+At the command line (assuming you've installed Saxon-HE), you can run the trasform with something like:
 
     saxon -xsl:xslt/quickview/quickview.xsl -o:output/quickview.html -it:START datadir="$PWD/data"
 
@@ -37,5 +39,32 @@ In OxygenXML, you'll need to configure a "Transformation Scenario" in order to r
         * select the "OK" button on the "XSLT" tab
 * Back on the "Configure Transformation Scenario(s)" dialog box, select the "Apply Associated" button to run the transform. 
 * HTML output from the XSLT will appear in a new editor pane. If you want to have the output saved directly to file, edit the transformation scenario again and make changes on the "output" tab.
+
+pn-xslt/
+--------
+
+The XSLT files used by the Papyrological Navigator to produce output in the production version of papyri.info. RDF2HTML.xsl has a title that is something of a misnomer (there are historical reasons for its name that we can overlook for now): it takes a papyrological data file (in TEI XML conforming to the EpiDoc standard) as input and produces HTML output. Like the quickview XSLT, we're using XSL version 2.0, so you have to use one of the recent Saxon family of processors. A value for the "collection" parameter must be passed in order to get the stylesheet to treat the data as belonging to the ddbdp, hgv, or apis collections.
+
+At the command line (assuming you've installed Saxon-HE), you can run the transform with something like the following to get one of our DCLP example files treated as if it is an HGV file:
+
+    saxon -xsl:xslt/pn-xslt/RDF2HTML.xsl -o:output/59122-hgv.html -s:data/60/59112.xml collection="hgv"
+
+An APIS file:
+
+    saxon -xsl:xslt/pn-xslt/RDF2HTML.xsl -o:output/59122-apis.html -s:data/60/59112.xml collection="apis"
+
+A DDBDP file:
+
+    saxon -xsl:xslt/pn-xslt/RDF2HTML.xsl -o:output/59122-ddbdp.html -s:data/60/59112.xml collection="ddbdp"
+
+An OxygenXML transformation can also be configured for our XML files using the bundled copy of saxon-he and setting the "collection" parameter for the desired target.
+
+
+
+
+
+
+
+
 
   
