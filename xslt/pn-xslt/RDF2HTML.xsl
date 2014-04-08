@@ -156,26 +156,26 @@
        <xsl:if test="string-length($citationForm) > 0">
           <meta property="dc:bibliographicCitation" datatype="xsd:string" content="{replace($citationForm, '&quot;', '')}"/>
        </xsl:if>
-        <link rel="stylesheet" href="/css/yui/reset-fonts-grids.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
-        <link rel="stylesheet" href="/css/master.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+        <link rel="stylesheet" href="./css/yui/reset-fonts-grids.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+        <link rel="stylesheet" href="./css/master.css" type="text/css" media="screen" title="no title" charset="utf-8" />
         <link rel="bookmark" href="{$selfUrl}" title="Canonical URI"/>
-        <xsl:comment><![CDATA[[if IE]><link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen" charset="utf-8" /><![endif]]]></xsl:comment>
-        <xsl:comment><![CDATA[[if IE 7]><link rel="stylesheet" href="/css/ie7.css" type="text/css" media="screen" charset="utf-8" /><![endif]]]></xsl:comment>
-        <xsl:comment><![CDATA[[if IE 8]><link rel="stylesheet" href="/css/ie8.css" type="text/css" media="screen" charset="utf-8" /><![endif]]]></xsl:comment>
-        <xsl:comment><![CDATA[[if IE 7]><link rel="stylesheet" href="/css/ie9.css" type="text/css" media="screen" charset="utf-8" /><![endif]]]></xsl:comment>        
+        <xsl:comment><![CDATA[[if IE]><link rel="stylesheet" href="./css/ie.css" type="text/css" media="screen" charset="utf-8" /><![endif]]]></xsl:comment>
+        <xsl:comment><![CDATA[[if IE 7]><link rel="stylesheet" href="./css/ie7.css" type="text/css" media="screen" charset="utf-8" /><![endif]]]></xsl:comment>
+        <xsl:comment><![CDATA[[if IE 8]><link rel="stylesheet" href="./css/ie8.css" type="text/css" media="screen" charset="utf-8" /><![endif]]]></xsl:comment>
+        <xsl:comment><![CDATA[[if IE 7]><link rel="stylesheet" href="./css/ie9.css" type="text/css" media="screen" charset="utf-8" /><![endif]]]></xsl:comment>        
         <title>
           <xsl:call-template name="get-references"/>
         </title>
-        <script src="/js/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/js/jquery-ui-1.8.14.custom.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/js/jquery.bubblepopup.v2.1.5.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./js/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./js/jquery-ui-1.8.14.custom.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./js/jquery.bubblepopup.v2.1.5.min.js" type="text/javascript" charset="utf-8"></script>
         <xsl:if test="$image">
-          <script src="/js/OpenLayers.js" type="text/javascript" charset="utf-8"></script>
-          <script src="/js/imageviewer.js" type="text/javascript" charset="utf-8"></script>
+          <script src="./js/OpenLayers.js" type="text/javascript" charset="utf-8"></script>
+          <script src="./js/imageviewer.js" type="text/javascript" charset="utf-8"></script>
         </xsl:if>            
-        <script src="/js/init.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/js/titledate.js" type="text/javascript" charset="utf-8"></script>
-        <script type="text/javascript">
+        <script src="./js/init.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./js/titledate.js" type="text/javascript" charset="utf-8"></script>
+        <!-- <script type="text/javascript">
         
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', 'UA-19774706-1']);
@@ -187,7 +187,7 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
         
-        </script>
+        </script> -->
       </head>
       <body onload="init()">
         <div id="d">
