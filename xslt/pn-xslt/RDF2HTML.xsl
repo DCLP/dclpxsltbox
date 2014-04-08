@@ -81,6 +81,7 @@
   <xsl:param name="selfUrl"/>
   <xsl:param name="biblio"/>
   <xsl:param name="server">papyri.info</xsl:param>
+  <!-- variables to assist in offline testing by controlling paths and behaviors in the output html -->
   <xsl:param name="cssbase">/css</xsl:param>
   <xsl:param name="jsbase">/js</xsl:param>
   <xsl:param name="analytics">yes</xsl:param>
