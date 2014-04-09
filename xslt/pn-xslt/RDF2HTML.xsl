@@ -144,7 +144,10 @@
    
     <html lang="en" version="HTML+RDFa 1.1"
       prefix="dc: http://purl.org/dc/terms/">
+      
       <head>
+        
+        <!-- metadata embedded in the HTML header -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta property="dc:identifier" content="{$selfUrl}"/>
         <xsl:call-template name="collection-hierarchy">
@@ -165,9 +168,11 @@
        <xsl:if test="string-length($citationForm) > 0">
           <meta property="dc:bibliographicCitation" datatype="xsd:string" content="{replace($citationForm, '&quot;', '')}"/>
        </xsl:if>
+        <link rel="bookmark" href="{$selfUrl}" title="Canonical URI"/>
+
+        <!-- cascading stylesheets -->
         <link rel="stylesheet" href="{$cssbase}/yui/reset-fonts-grids.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
         <link rel="stylesheet" href="{$cssbase}/master.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-        <link rel="bookmark" href="{$selfUrl}" title="Canonical URI"/>
         <xsl:comment>
           <xsl:text><![CDATA[[if IE]><link rel="stylesheet" href="]]></xsl:text>
           <xsl:value-of select="$cssbase"/>
@@ -188,9 +193,13 @@
           <xsl:value-of select="$cssbase"/>
           <xsl:text><![CDATA[/ie9.css" type="text/css" media="screen" charset="utf-8"/><![endif]]]></xsl:text>
         </xsl:comment>        
+        
+        <!-- document title -->
         <title>
           <xsl:call-template name="get-references"/>
         </title>
+        
+        <!-- scripts -->
         <script src="{$jsbase}/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="{$jsbase}/jquery-ui-1.8.14.custom.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="{$jsbase}/jquery.bubblepopup.v2.1.5.min.js" type="text/javascript" charset="utf-8"></script>
@@ -216,20 +225,27 @@
           </script>
         </xsl:if>
       </head>
+      
       <body onload="init()">
         <div id="d">
+          
           <div id="hd">
             <h1>Papyri.info</h1>
             <h2 id="login"><a href="/editor/user/signin">sign in</a></h2>   
           </div>
+          
           <div id="bd">
+            
             <xi:include href="nav.xml"/>
+            
             <div id="main">
+              
               <div class="content ui-corner-all">
                 <h3 style="text-align:center"><xsl:call-template name="get-references"></xsl:call-template></h3>
                 <xsl:if test="$hgv or $apis or $dclp">
                   <h4 style="text-align:center" id="titledate"></h4>
                 </xsl:if>
+                
                 <div id="controls" class="ui-widget">
                   <xsl:if test="$hgv or $apis or $dclp">
                     <div id="metadatacontrols" class="ui-widget-content ui-corner-all">
@@ -259,6 +275,7 @@
                       </xsl:if>
                     </div>
                   </xsl:if>
+                  <!-- todo: add dclp handling here, similar to what's below for other collections -->
                   <xsl:if test="$ddbdp">
                     <div id="editthis" class="ui-widget-content ui-corner-all">
                       <a href="/editor/publications/create_from_identifier/papyri.info/ddbdp/{/t:TEI/t:teiHeader/t:fileDesc/t:publicationStmt/t:idno[@type='ddb-hybrid']}" rel="nofollow">open in editor</a>
@@ -278,7 +295,10 @@
                     <span id="canonical-uri-label">Canonical URI: </span>
                     <span id="canonical-uri-value"><a href="{$selfUrl}"><xsl:value-of select="$selfUrl"/></a></span>
                   </div>
-                </div>
+                </div> <!-- id=controls -->
+                
+                <!-- content handling for the major collections follows -->
+                
                 <xsl:if test="$collection = 'ddbdp'">
                   <xsl:if test="$hgv or $apis">
                     <div class="metadata">
@@ -366,7 +386,8 @@
                       </xsl:for-each>
                     </xsl:if>
                   </div>
-                </xsl:if>
+                </xsl:if> <!-- $collection = 'ddbdp' -->
+                
                 <xsl:if test="$collection = 'hgv'">
                   <div class="metadata">
                     <xsl:apply-templates select="/t:TEI" mode="metadata"/>
@@ -394,7 +415,8 @@
                       </xsl:for-each>
                     </div>
                   </xsl:if>
-                </xsl:if>
+                </xsl:if> <!-- $collection = 'hgv' -->
+                
                 <xsl:if test="$collection = 'apis'">
                   <div class="metadata">
                     <xsl:apply-templates select="/t:TEI" mode="metadata"/>
@@ -408,15 +430,26 @@
                       <xsl:apply-templates select="/t:TEI" mode="apistrans"/>
                     </xsl:if>
                   </div>
-                </xsl:if>
-                <xsl:if test="$dclp">
-                  foooooooooo                  
-                </xsl:if>
-              </div>
-            </div>
-          </div>
+                </xsl:if> <!-- $collection = 'apis' -->
+
+                <xsl:if test="$collection = 'dclp'">
+                  <div class="metadata">
+                    <xsl:apply-templates select="/t:TEI" mode="metadata"/>
+                    <xsl:call-template name="biblio"/>
+                  </div>
+                  <div class="text">
+                    <xsl:comment>text information will go here</xsl:comment>
+                    <p>text information will go here</p>
+                  </div>
+                </xsl:if> <!-- $collection = 'dclp' -->
+                
+              </div> <!-- class=content ui-corner-all -->
+            </div> <!-- id=main -->
+          </div> <!-- id=bd -->
+          
           <xi:include href="footer.xml"/>
         </div>
+        
       </body>
     </html>
   </xsl:template>
