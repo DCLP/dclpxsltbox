@@ -3,7 +3,7 @@ Core tools for managing XSLT development for the Digital Corpus of Literary Papy
 Setup
 =====
 
-Several components are needed in order to set up a local working environment, including clones of 3 github git repositories and a checkout of a sourceforge svn repository. Before you start, you'll need github and sourceforge credentials, and you'll need to have been added to the developer teams for the Github organization DCLP and for the Sourceforge Project EpiDoc. You'll also need to set up ssh keys for working with both Github and SourceForge. Once you've done those things, follow this checklist:
+Several components are needed in order to set up a local working environment, including clones of 3 github git repositories and a checkout of a sourceforge svn repository. Before you start, you'll need github and sourceforge credentials, and you'll need to have been added to the developer teams for the [Github organization "DCLP"](https://github.com/DCLP/) and for the [Sourceforge Project "EpiDoc"](http://epidoc.sf.net). You'll also need to set up ssh keys for working with both [Github](https://help.github.com/articles/generating-ssh-keys) and [SourceForge](http://sourceforge.net/apps/trac/sourceforge/wiki/SSH%20keys). Once you've done those things, follow this checklist:
 
 1. Create a working directory on your local machine wherever you like. You can name it whatever you want. We'll call it ```{your-working-dir}``` for the rest of this setup.
 2. cd into ```{your-working-dir}```
