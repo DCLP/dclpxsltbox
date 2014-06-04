@@ -3,21 +3,43 @@ Core tools for managing XSLT development for the Digital Corpus of Literary Papy
 Setup
 =====
 
-Several components are needed in order to set up a local working environment, including clones of 3 github git repositories and a checkout of a sourceforge svn repository. Here's how:
+Several components are needed in order to set up a local working environment, including clones of 3 github git repositories and a checkout of a sourceforge svn repository. Before you start, you'll need github and sourceforge credentials, and you'll need to have been added to the developer teams for the Github organization DCLP and for the Sourceforge Project EpiDoc. You'll also need to set up ssh keys for working with both Github and SourceForge. Once you've done those things, follow this checklist:
 
-1. Create a working directory on your local machine.
-2. cd into that working directory
-3. git clone git@github.com:DCLP/dclpxsltbox.git (this gets you this repos: transform tools and a place to put results for sharing)
-4. git clone git@github.com:DCLP/navigator.git -b xslt-development (this gets you the xslt-development branch of the DCLP fork of the Papyrological Navigator code, which includes the PN-specific XSLT files that we are working on, i.e., navigator/pn-xslt)
-5. cd navigator
-6. svn checkout svn+ssh://USERNAME@svn.code.sf.net/p/epidoc/code/branches/dclp/example-p5-xslt epidoc-xslt (change USERNAME to your sourceforge username; supposing you already have ssh keys set up on sourceforge and commit privileges with EpiDoc, this gets you a R/W checkout of the DCLP branch of the EpiDoc example stylesheets, which provide core style to the PN; make sure you check out the branch and that you name it as indicated!)
-7. cd ..
-8. git clone git@github.com:DCLP/idp.data.git -b dclp (this gets you the dclp branch of the big data repository; you may want to go get a cup of tea while this is cloning)
-9. pat yourself on the back
+1. Create a working directory on your local machine wherever you like. You can name it whatever you want. We'll call it ```{your-working-dir}``` for the rest of this setup.
+2. cd into ```{your-working-dir}```
+3. Issue this command in ```{your-working-dir}```: 
+
+    ```git clone git@github.com:DCLP/dclpxsltbox.git```
+
+    This gets you a local copy of this dclpxsltbox repository, which contains transform tools and a place to put results for sharing back to github.
+
+4. Now issue this command in ```{your-working-dir}```:
+
+    ```git clone git@github.com:DCLP/navigator.git -b xslt-development```
+
+    This gets you the **"xslt-development" branch** of the **"DCLP" fork** of the *Papyrological Navigator (PN)* code, which includes the PN-specific XSLT files that we are working on, i.e., navigator/pn-xslt)
+
+5. Now cd into the ```navigator``` directory that contains the clone you just created in step 4.
+
+6. Issue this command in ```{your-working-dir}/navigator```:
+
+    ```svn checkout svn+ssh://{USERNAME}@svn.code.sf.net/p/epidoc/code/branches/dclp/example-p5-xslt epidoc-xslt```
+
+    **Change {USERNAME} to your sourceforge username.**
+
+    This gets you a R/W checkout of the DCLP branch of the EpiDoc example stylesheets, which provide core style to the PN; make sure you check out the **"dclp" branch** and that you name it as indicated! If you follow the code snippet above exactly, that should happen automatically.
+
+7. cd back to ```{your-working-directory}```
+
+8. Issue the following command:
+
+    ```git clone git@github.com:DCLP/idp.data.git -b dclp```
+
+    This gets you the **"dclp" branch** of the big papyrological data repository; you may want to go get a cup of tea while this is cloning.
 
 You should end up with a directory structure that looks like this (irrelevant subdirectories have been ommitted from the listing, replaced by ellipses):
 
-<pre>your-directory-name/
+<pre>{your-working-directory}/
     dclpxsltbox/
         bin/
         output/
