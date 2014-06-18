@@ -60,16 +60,19 @@ def main (args):
     data_path = os.path.abspath(os.path.join(script_dir, '..', '..', 'idp.data'))
     logger.debug("data path is '%s'" % data_path)
     if not os.path.isdir(data_path):
-        logger.fatal("%s is not a directory" % data_path)
-        raise IOERROR
+        emsg = "%s is not a directory" % data_path
+        logger.fatal(emsg)
+        raise IOError(emsg)
     for candidate in candidates:
         # check for regression
         logger.info("file to check for regression: '%s' (%s)" % (candidate['idpdata_relative_path'], candidate['collection_id']))
         candidate_path = os.path.join(data_path, os.path.normpath(candidate['idpdata_relative_path']))
         logger.debug("candidate path is '%s'" % candidate_path)
         if not os.path.isfile(candidate_path):
-            logger.fatal("%s is not a file" % candidate_path)
-            raise IOERROR
+            emsg = "%s is not a file" % candidate_path
+            logger.fatal(emsg)
+            raise IOError(emsg)
+
 
 
 if __name__ == "__main__":
