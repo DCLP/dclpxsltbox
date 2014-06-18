@@ -5,6 +5,7 @@ test xslt regression for the dclp project
 """
 
 import argparse
+import csv
 from functools import wraps
 import logging
 import os
@@ -31,7 +32,36 @@ def main (args):
     """
     main functions
     """
-    logger = logging.getLogger(sys._getframe().f_code.co_name)
+    logger = logging.getLogger()
+    log_level = DEFAULTLOGLEVEL
+    if args.loglevel is not None:
+        args_log_level = re.sub('\s+', '', args.loglevel.strip().upper())
+        try:
+            log_level = getattr(logging, args_log_level)
+        except AttributeError:
+            logging.error("command line option to set log_level failed because '%s' is not a valid level name; using %s" % (args_log_level, log_level_name))
+    elif args.veryverbose:
+        log_level = logging.DEBUG
+    elif args.verbose:
+        log_level = logging.INFO
+    log_level_name = logging.getLevelName(log_level)
+    logger.setLevel(log_level)
+    if log_level != DEFAULTLOGLEVEL:
+        logging.warning("logging level changed to %s via command line option" % log_level_name)
+    else:
+        logging.info("using default logging level: %s" % log_level_name)
+    logging.debug("command line: '%s'" % ' '.join(sys.argv))
+
+    script_path = os.path.realpath(__file__)
+    logger.info("script path is '%s'" % script_path)
+    dir_name, script_name = os.path.split(script_path)
+    infn = os.path.join(dir_name, 'data', 'regression_candidates.csv')
+    candidates = csv.DictReader(open(infn, 'rb'))
+    for candidate in candidates:
+        # check for regression
+        logger.info("file to check for regression: '%s' (%s)" % (candidate['idpdata_relative_path'], candidate['collection_id']))
+
+
 
 
 if __name__ == "__main__":
@@ -47,23 +77,6 @@ if __name__ == "__main__":
         # example positional argument:
         # parser.add_argument('integers', metavar='N', type=int, nargs='+', help='an integer for the accumulator')
         args = parser.parse_args()
-        if args.loglevel is not None:
-            args_log_level = re.sub('\s+', '', args.loglevel.strip().upper())
-            try:
-                log_level = getattr(logging, args_log_level)
-            except AttributeError:
-                logging.error("command line option to set log_level failed because '%s' is not a valid level name; using %s" % (args_log_level, log_level_name))
-        if args.veryverbose:
-            log_level = logging.DEBUG
-        elif args.verbose:
-            log_level = logging.INFO
-        log_level_name = logging.getLevelName(log_level)
-        logging.getLogger().setLevel(log_level)
-        if log_level != DEFAULTLOGLEVEL:
-            logging.warning("logging level changed to %s via command line option" % log_level_name)
-        else:
-            logging.info("using default logging level: %s" % log_level_name)
-        logging.debug("command line: '%s'" % ' '.join(sys.argv))
         main(args)
         sys.exit(0)
     except KeyboardInterrupt, e: # Ctrl-C
