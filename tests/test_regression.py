@@ -37,9 +37,9 @@ def main (args):
     if args.loglevel is not None:
         args_log_level = re.sub('\s+', '', args.loglevel.strip().upper())
         try:
-            log_level = getattr(logging, args_log_level)
+            log_level = getattr(logger, args_log_level)
         except AttributeError:
-            logging.error("command line option to set log_level failed because '%s' is not a valid level name; using %s" % (args_log_level, log_level_name))
+            logger.error("command line option to set log_level failed because '%s' is not a valid level name; using %s" % (args_log_level, log_level_name))
     elif args.veryverbose:
         log_level = logging.DEBUG
     elif args.verbose:
@@ -47,21 +47,29 @@ def main (args):
     log_level_name = logging.getLevelName(log_level)
     logger.setLevel(log_level)
     if log_level != DEFAULTLOGLEVEL:
-        logging.warning("logging level changed to %s via command line option" % log_level_name)
+        logger.warning("logging level changed to %s via command line option" % log_level_name)
     else:
-        logging.info("using default logging level: %s" % log_level_name)
-    logging.debug("command line: '%s'" % ' '.join(sys.argv))
+        logger.info("using default logging level: %s" % log_level_name)
+    logger.debug("command line: '%s'" % ' '.join(sys.argv))
 
     script_path = os.path.realpath(__file__)
-    logger.info("script path is '%s'" % script_path)
-    dir_name, script_name = os.path.split(script_path)
-    infn = os.path.join(dir_name, 'data', 'regression_candidates.csv')
+    logger.debug("script path is '%s'" % script_path)
+    script_dir, script_name = os.path.split(script_path)
+    infn = os.path.join(script_dir, 'data', 'regression_candidates.csv')
     candidates = csv.DictReader(open(infn, 'rb'))
+    data_path = os.path.abspath(os.path.join(script_dir, '..', '..', 'idp.data'))
+    logger.debug("data path is '%s'" % data_path)
+    if not os.path.isdir(data_path):
+        logger.fatal("%s is not a directory" % data_path)
+        raise IOERROR
     for candidate in candidates:
         # check for regression
         logger.info("file to check for regression: '%s' (%s)" % (candidate['idpdata_relative_path'], candidate['collection_id']))
-
-
+        candidate_path = os.path.join(data_path, os.path.normpath(candidate['idpdata_relative_path']))
+        logger.debug("candidate path is '%s'" % candidate_path)
+        if not os.path.isfile(candidate_path):
+            logger.fatal("%s is not a file" % candidate_path)
+            raise IOERROR
 
 
 if __name__ == "__main__":
