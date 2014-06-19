@@ -44,6 +44,7 @@ You should end up with a directory structure that looks like this (irrelevant su
         bin/
         output/
             ...
+        tests/
         xslt/
             quickview/
     idp.data/
@@ -84,6 +85,10 @@ Or if you're on Windows, a batch file:
 
 An OxygenXML transformation can also be configured for our XML files using the bundled copy of saxon-he and setting the "collection" parameter for the desired target.
 
+Regression Testing
+==================
+
+There is now a script for making sure that changes for dclp don't mess up the other collections. Find it in tests/test_regression.py. It uses checksums to see if some files from other collections that shouldn't be changed by our transforms have been. Running it won't mess with any content in the top-level output directory; everything is confined to the tests subdirectory and its descendants. At the moment, Windows is not fully supported, but Mac/Linux is. Run like: ```python -v test_regression.py```. Using ```-vv``` will give you full debug output, which may be helpful if files aren't being found in the right place. If any problems are found, you'll see a critical logging error with details about the test file that exhibits unexpected changes.
 
 
 
