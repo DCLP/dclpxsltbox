@@ -10,6 +10,7 @@ from functools import wraps
 import logging
 import os
 import re
+import subprocess
 import sys
 import traceback
 
@@ -54,24 +55,67 @@ def main (args):
 
     script_path = os.path.realpath(__file__)
     logger.debug("script path is '%s'" % script_path)
+
     script_dir, script_name = os.path.split(script_path)
-    infn = os.path.join(script_dir, 'data', 'regression_candidates.csv')
-    candidates = csv.DictReader(open(infn, 'rb'))
-    data_path = os.path.abspath(os.path.join(script_dir, '..', '..', 'idp.data'))
-    logger.debug("data path is '%s'" % data_path)
+    logger.debug("script dir is '%s'" % script_dir)
+
+    project_dir = os.path.abspath(os.path.join(script_dir, '..', '..'))
+    logger.debug("project dir is '%s'" % project_dir)
+
+    data_path = os.path.join(project_dir, 'idp.data')
     if not os.path.isdir(data_path):
         emsg = "%s is not a directory" % data_path
         logger.fatal(emsg)
-        raise IOError(emsg)
+        raise IOError(emsg)        
+    logger.debug("data path is '%s'" % data_path)
+
+    navigator_path = os.path.join(project_dir, 'navigator')
+    if not os.path.isdir(navigator_path):
+        emsg = "%s is not a directory" % navigator_path
+        logger.fatal(emsg)
+        raise IOError(emsg)        
+    logger.debug("navigator path is '%s'" % navigator_path)
+
+    xslt_file_path = os.path.join(navigator_path, 'pn-xslt', 'MakeHTML.xsl')
+    if not os.path.isfile(xslt_file_path):
+        emsg = "%s is not a file" % xslt_file_path
+        logger.fatal(emsg)
+        raise IOError(emsg)        
+    logger.debug("xslt file path is '%s'" % xslt_file_path)
+
+    output_path = os.path.join(script_dir, 'output')
+    if not os.path.isdir(output_path):
+        os.makedirs(output_path)
+        logger.info("created test output directory at '%s'" % output_path)
+    else:
+        logger.debug("output path is '%s'" % output_path)
+
+    candidate_file_path = os.path.join(script_dir, 'data', 'regression_candidates.csv')
+    logger.debug("candidate file path is '%s'" % candidate_file_path)
+
+    candidates = csv.DictReader(open(candidate_file_path, 'rb'))
     for candidate in candidates:
-        # check for regression
-        logger.info("file to check for regression: '%s' (%s)" % (candidate['idpdata_relative_path'], candidate['collection_id']))
-        candidate_path = os.path.join(data_path, os.path.normpath(candidate['idpdata_relative_path']))
-        logger.debug("candidate path is '%s'" % candidate_path)
-        if not os.path.isfile(candidate_path):
-            emsg = "%s is not a file" % candidate_path
+        candidate_collection = candidate['collection_id']
+        candidate_relative_file_path = os.path.normpath(candidate['idpdata_relative_path'])
+        candidate_file_path = os.path.join(data_path, candidate_relative_file_path)
+        if not os.path.isfile(candidate_file_path):
+            emsg = "%s is not a file" % candidate_file_path
             logger.fatal(emsg)
             raise IOError(emsg)
+        logger.debug("candidate file path is '%s'" % candidate_file_path)
+        candidate_relative_path, candidate_filename = os.path.split(candidate_relative_file_path)
+        logger.debug("candidate_filename is '%s'" % candidate_filename)
+        candidate_filename, candidate_extension = os.path.splitext(candidate_filename)
+        logger.debug("candidate filename is '%s'" % candidate_filename)
+        logger.debug("candidate filename extension is '%s'" % candidate_extension)
+        output_file_path = os.path.join(output_path, candidate_collection.lower(), candidate_filename+'.html')
+        if os.name == 'posix':
+            cmd = ['saxon', '-xsl:%s' % xslt_file_path, '-o:%s' % output_file_path, '-s:%s' % candidate_file_path, 'collection="%s"' % candidate_collection, 'analytics="no"', 'cssbase="../../css"', 'jsbase="../../js"' ]
+            logger.debug(' '.join(cmd))
+            subprocess.call(cmd)       
+        else:
+            # handle it on pc
+            pass
 
 
 
