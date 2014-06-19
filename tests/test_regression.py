@@ -7,6 +7,7 @@ test xslt regression for the dclp project
 import argparse
 import csv
 from functools import wraps
+import hashlib
 import logging
 import os
 import re
@@ -27,6 +28,29 @@ def arglogger(func):
         return func(*args, **kwargs) 
     return inner    
 
+
+@arglogger
+def hash_file(filename):
+   """"This function returns the SHA-1 hash
+   of the file passed into it"""
+
+   # code from http://www.programiz.com/python-programming/examples/hash-file
+
+   # make a hash object
+   h = hashlib.sha1()
+
+   # open file for reading in binary mode
+   with open(filename,'rb') as file:
+
+       # loop till the end of the file
+       chunk = 0
+       while chunk != b'':
+           # read only 1024 bytes at a time
+           chunk = file.read(1024)
+           h.update(chunk)
+
+   # return the hex representation of digest
+   return h.hexdigest()
 
 @arglogger
 def main (args):
@@ -109,14 +133,31 @@ def main (args):
         logger.debug("candidate filename is '%s'" % candidate_filename)
         logger.debug("candidate filename extension is '%s'" % candidate_extension)
         output_file_path = os.path.join(output_path, candidate_collection.lower(), candidate_filename+'.html')
+        sha_file_path = os.path.join(output_path, candidate_collection.lower(), candidate_filename+'.sha')
         if os.name == 'posix':
             cmd = ['saxon', '-xsl:%s' % xslt_file_path, '-o:%s' % output_file_path, '-s:%s' % candidate_file_path, 'collection="%s"' % candidate_collection, 'analytics="no"', 'cssbase="../../css"', 'jsbase="../../js"' ]
             logger.debug(' '.join(cmd))
-            subprocess.call(cmd)       
+            subprocess.call(' '.join(cmd), shell=True)       
         else:
             # handle it on pc
             pass
 
+        sha_file = open(sha_file_path, 'r')
+        prev_sha = sha_file.read()
+        sha_file.close()
+        logger.debug("previous sha is '%s'" % prev_sha)
+
+        prev_sha_file_path = sha_file_path+'.prev'
+        os.rename(sha_file_path, prev_sha_file_path)
+
+        output_sha = hash_file(output_file_path)
+        sha_file = open(sha_file_path, 'w')
+        sha_file.write(output_sha)
+        sha_file.close()
+        logger.debug("output sha is '%s'" % output_sha)
+
+        if prev_sha != output_sha:
+            logger.critical("probable regression bug detected: checksum of newly-created file %s does not match checksum from previous run" % output_file_path)
 
 
 if __name__ == "__main__":
