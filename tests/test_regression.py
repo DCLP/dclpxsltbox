@@ -135,7 +135,7 @@ def main (args):
         output_file_path = os.path.join(output_path, candidate_collection.lower(), candidate_filename+'.html')
         sha_file_path = os.path.join(output_path, candidate_collection.lower(), candidate_filename+'.sha')
         if os.name == 'posix':
-            cmd = ['saxon', '-xsl:%s' % xslt_file_path, '-o:%s' % output_file_path, '-s:%s' % candidate_file_path, 'collection="%s"' % candidate_collection, 'analytics="no"', 'cssbase="../../css"', 'jsbase="../../js"' ]
+            cmd = ['saxon', '-xsl:%s' % xslt_file_path, '-o:%s' % output_file_path, '-s:%s' % candidate_file_path, 'collection="%s"' % candidate_collection, 'analytics="no"', 'cssbase="/css"', 'jsbase="/js"' ]
             logger.debug(' '.join(cmd))
             subprocess.call(' '.join(cmd), shell=True)       
         else:
