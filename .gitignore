@@ -1,1 +1,5 @@
 *.xpr
+*.sha.prev
+docs/
+*.pyc
+.DS_Store

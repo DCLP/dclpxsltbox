@@ -1,64 +1,94 @@
-Sandbox for experimenting with DCLP/PN XSLT stuff
+Core tools for managing XSLT development for the Digital Corpus of Literary Papyrology (DCLP) project. 
 
-data/
+Setup
 =====
 
-This is a hard copy (no linkage) of the prototype DCLP XML data files (https://github.com/papyri/idp.data/tree/dclp/DCLP), made on 3 April 2014.
+Several components are needed in order to set up a local working environment, including clones of 3 github git repositories and a checkout of a sourceforge svn repository. Before you start, you'll need github and sourceforge credentials, and you'll need to have been added to the developer teams for the [Github organization "DCLP"](https://github.com/DCLP/) and for the [Sourceforge Project "EpiDoc"](http://epidoc.sf.net). You'll also need to set up ssh keys for working with both [Github](https://help.github.com/articles/generating-ssh-keys) and [SourceForge](http://sourceforge.net/apps/trac/sourceforge/wiki/SSH%20keys). Once you've done those things, follow this checklist:
+
+1. Create a working directory on your local machine wherever you like. You can name it whatever you want. We'll call it ```{your-working-dir}``` for the rest of this setup.
+2. cd into ```{your-working-dir}```
+3. Issue this command in ```{your-working-dir}```: 
+
+    ```git clone git@github.com:DCLP/dclpxsltbox.git```
+
+    This gets you a local copy of this dclpxsltbox repository, which contains transform tools and a place to put results for sharing back to github.
+
+4. Now issue this command in ```{your-working-dir}```:
+
+    ```git clone git@github.com:DCLP/navigator.git -b xslt-development```
+
+    This gets you the **"xslt-development" branch** of the **"DCLP" fork** of the *Papyrological Navigator (PN)* code, which includes the PN-specific XSLT files that we are working on, i.e., navigator/pn-xslt)
+
+5. Now cd into the ```navigator``` directory that contains the clone you just created in step 4.
+
+6. Issue this command in ```{your-working-dir}/navigator```:
+
+    ```svn checkout svn+ssh://{USERNAME}@svn.code.sf.net/p/epidoc/code/branches/dclp/example-p5-xslt epidoc-xslt```
+
+    **Change {USERNAME} to your sourceforge username.**
+
+    This gets you a R/W checkout of the DCLP branch of the EpiDoc example stylesheets, which provide core style to the PN; make sure you check out the **"dclp" branch** and that you name it as indicated! If you follow the code snippet above exactly, that should happen automatically.
+
+7. cd back to ```{your-working-directory}```
+
+8. Issue the following command:
+
+    ```git clone git@github.com:DCLP/idp.data.git -b dclp```
+
+    This gets you the **"dclp" branch** of the big papyrological data repository; you may want to go get a cup of tea while this is cloning.
+
+You should end up with a directory structure that looks like this (irrelevant subdirectories have been ommitted from the listing, replaced by ellipses):
+
+<pre>{your-working-directory}/
+    dclpxsltbox/
+        bin/
+        output/
+            ...
+        tests/
+        xslt/
+            quickview/
+    idp.data/
+        ...
+        DCLP/
+        ...
+    navigator/
+        ...
+        epidoc-xslt/
+        ...
+        pn-xslt/
+</pre>
+
+What's here
+============
+
+There have been a number of changes to this setup since the original version. Most notably, the testbox versions of the data and pn-xslt and epidoc xslts have been ripped out and are managed via their own repos now (as indicated above). The quickview xslt is still packaged here, as are the transformation tools in the dclpxsltbox/bin/ subdirectory.
 
 
-xslt/
-=====
+How to
+======
 
-XSLT files we want to play with, including:
+At the command line (assuming you've installed Saxon-HE) and you're sitting in the top level "your-directory-name" (see above), you can run the transform with something like the following to get one of our DCLP example files transformed with whatever combination of XSLT files from the PN and EpiDoc repositories you have sitting in your local sandboxes:
 
-quickview/
-----------
+    saxon -xsl:navigator/pn-xslt/MakeHTML.xsl -o:/dclpxsltbox/output/DCLP/81/80756.html -s:idp.data/DCLP/81/80756.xml collection="dclp" analytics="no" cssbase="../../css" jsbase="../../js"
 
-Creates a single HTML tabular view of all the DCLP XML files you can point it to. 
+If you want to make sure you haven't messed up the stylesheets for one of the existing collections, try something like:
 
-At the command line (assuming you've installed Saxon-HE), you can run the trasform with something like:
+    saxon -xsl:navigator/pn-xslt/MakeHTML.xsl -o:/dclpxsltbox/output/HGV/HGV62/61399.html -s:idp.data/HGV_meta_EpiDoc/HGV62/61399.xml collection="hgv" analytics="no" cssbase="../../css" jsbase="../../js"
 
-    saxon -xsl:xslt/quickview/quickview.xsl -o:output/quickview.html -it:START datadir="$PWD/data"
+If you want to transform all of the DCLP files you have locally, there's a script that uses Hugh Cayless's claxon wrapper for saxon to rip through them all. It's much much faster than issuing a separate saxon call for each transform:
 
-In OxygenXML, you'll need to configure a "Transformation Scenario" in order to run the quickview transform through the bundled saxon. You must first create an Oxygen project file (.xpr). Then, use the following settings to set up the transformation scenario:
+    dclpxsltbox/bin/2html.sh
 
-* Open quickview.xsl in OxygenXML and make sure it has the focus
-* From the menu bar, select "Document" -> "Transformation" -> "Configure Transformation Scenario(s)..."
-* In the "Configure Transformation Scenario(s)" dialog box:
-    * make sure the "Association follows selection" check box is selected
-    * select the "New" button and then choose "XSLT Transformation" from the contextual menu that appears
-* In the "New Scenario" dialog box:
-    * make sure the "Name" field contains "quickview" (without quotation marks)
-    * for "Storage", select the "Project Options" radio button
-    * on the "XSLT" tab:
-        * leave the "XML URL" field empty
-        * leave the intial value of "${currentFileURL}" in the "XSL URL" field
-        * in the "Transformer" combo box, select "Saxon-HE 9.5.1.3" (vel sim)
-        * select the small icon to the right of the "Transformer" combo box, which looks like a small cogwheel moving fast; this will display the Saxon HE configuration dialog (no title); under the heading "Initial mode and template", set the "Template ("-it")" field to "START" (without the quotation marks) and select the "OK" button
-        * back on the "XSLT" tab of the "New Scenario" dialog box, below the "Transformer" combo box, select the "Parameters" button to display the "Configure Paramters" dialog; double-click on the "datadir" parameter and enter "../../data" (without the quotation marks) in the value field (this replaces the default path the xslt uses in looking for the input xml files; when running inside the Oxygen+saxon configuration bundle, it is relative to the xslt location); select the "OK" button
-        * select the "OK" button on the "XSLT" tab
-* Back on the "Configure Transformation Scenario(s)" dialog box, select the "Apply Associated" button to run the transform. 
-* HTML output from the XSLT will appear in a new editor pane. If you want to have the output saved directly to file, edit the transformation scenario again and make changes on the "output" tab.
+Or if you're on Windows, a batch file:
 
-pn-xslt/
---------
-
-The XSLT files used by the Papyrological Navigator to produce output in the production version of papyri.info. RDF2HTML.xsl has a title that is something of a misnomer (there are historical reasons for its name that we can overlook for now): it takes a papyrological data file (in TEI XML conforming to the EpiDoc standard) as input and produces HTML output. Like the quickview XSLT, we're using XSL version 2.0, so you have to use one of the recent Saxon family of processors. A value for the "collection" parameter must be passed in order to get the stylesheet to treat the data as belonging to the ddbdp, hgv, or apis collections.
-
-At the command line (assuming you've installed Saxon-HE), you can run the transform with something like the following to get one of our DCLP example files treated as if it is an HGV file:
-
-    saxon -xsl:xslt/pn-xslt/RDF2HTML.xsl -o:output/59122-hgv.html -s:data/60/59112.xml collection="hgv"
-
-An APIS file:
-
-    saxon -xsl:xslt/pn-xslt/RDF2HTML.xsl -o:output/59122-apis.html -s:data/60/59112.xml collection="apis"
-
-A DDBDP file:
-
-    saxon -xsl:xslt/pn-xslt/RDF2HTML.xsl -o:output/59122-ddbdp.html -s:data/60/59112.xml collection="ddbdp"
+    dclpxsltbox\bin\2html_window.bat
 
 An OxygenXML transformation can also be configured for our XML files using the bundled copy of saxon-he and setting the "collection" parameter for the desired target.
 
+Regression Testing
+==================
+
+There is now a script for making sure that changes for dclp don't mess up the other collections. Find it in tests/test_regression.py. It uses checksums to see if some files from other collections that shouldn't be changed by our transforms have been. Running it won't mess with any content in the top-level output directory; everything is confined to the tests subdirectory and its descendants. At the moment, Windows is not fully supported, but Mac/Linux is. Run like: ```python test_regression.py -v```. Using ```-vv``` will give you full debug output, which may be helpful if files aren't being found in the right place. If any problems are found, you'll see a critical logging error with details about the test file that exhibits unexpected changes.
 
 
 
