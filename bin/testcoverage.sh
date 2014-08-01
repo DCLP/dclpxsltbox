@@ -25,4 +25,4 @@ set -x #echo on
 
 cd xsugar
 git checkout master
-bundle exec rake coverage:ddb DDB_DATA_PATH=../idp.data/DCLP SAMPLE_FRAGMENTS=2 HTML_OUTPUT=../dclpxsltbox/output/xsugar/coverage.html 2>&1 | tee -a ../dclpxsltbox/output/xsugar/coverage.log
+bundle exec rake coverage:ddb DDB_DATA_PATH=../idp.data/DCLP SAMPLE_FRAGMENTS=2 HTML_OUTPUT=../dclpxsltbox/output/xsugar/coverage.html 2>&1 | tee -a ../dclpxsltbox/output/xsugar/coverage-log.txt
