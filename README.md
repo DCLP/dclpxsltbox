@@ -15,9 +15,9 @@ Several components are needed in order to set up a local working environment, in
 
 4. Now issue this command in ```{your-working-dir}```:
 
-    ```git clone git@github.com:DCLP/navigator.git -b xslt-development```
+    ```git clone git@github.com:DCLP/navigator.git -b xslt-master```
 
-    This gets you the **"xslt-development" branch** of the **"DCLP" fork** of the *Papyrological Navigator (PN)* code, which includes the PN-specific XSLT files that we are working on, i.e., navigator/pn-xslt)
+    This gets you the **"xslt-master" branch** of the **"DCLP" fork** of the *Papyrological Navigator (PN)* code, which includes the PN-specific XSLT files that we are working on, i.e., navigator/pn-xslt)
 
 5. Now cd into the ```navigator``` directory that contains the clone you just created in step 4.
 
