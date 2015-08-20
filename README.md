@@ -67,13 +67,13 @@ There have been a number of changes to this setup since the original version. Mo
 How to
 ======
 
-At the command line (assuming you've installed Saxon-HE) and you're sitting in the top level "your-directory-name" (see above), you can run the transform with something like the following to get one of our DCLP example files transformed with whatever combination of XSLT files from the PN and EpiDoc repositories you have sitting in your local sandboxes:
+At the command line (assuming you've installed Saxon-HE) and you're sitting in the top level "your-working-directory" (i.e. the parent directory of dclpxsltbox; see above), you can run the transform with something like the following to get one of our DCLP example files transformed with whatever combination of XSLT files from the PN and EpiDoc repositories you have sitting in your local sandboxes:
 
-    saxon -xsl:navigator/pn-xslt/MakeHTML.xsl -o:/dclpxsltbox/output/DCLP/81/80756.html -s:idp.data/DCLP/81/80756.xml collection="dclp" analytics="no" cssbase="../../css" jsbase="../../js"
+    saxon -xsl:navigator/pn-xslt/MakeHTML.xsl -o:dclpxsltbox/output/DCLP/81/80756.html -s:idp.data/DCLP/81/80756.xml collection="dclp" analytics="no" cssbase="../../css" jsbase="../../js" path="$PWD/idp.data"
 
 If you want to make sure you haven't messed up the stylesheets for one of the existing collections, try something like:
 
-    saxon -xsl:navigator/pn-xslt/MakeHTML.xsl -o:/dclpxsltbox/output/HGV/HGV62/61399.html -s:idp.data/HGV_meta_EpiDoc/HGV62/61399.xml collection="hgv" analytics="no" cssbase="../../css" jsbase="../../js"
+    saxon -xsl:navigator/pn-xslt/MakeHTML.xsl -o:dclpxsltbox/output/HGV/HGV62/61399.html -s:idp.data/HGV_meta_EpiDoc/HGV62/61399.xml collection="hgv" analytics="no" cssbase="../../css" jsbase="../../js" path="$PWD/idp.data"
 
 If you want to transform all of the DCLP files you have locally, there's a script that uses Hugh Cayless's claxon wrapper for saxon to rip through them all. It's much much faster than issuing a separate saxon call for each transform:
 
