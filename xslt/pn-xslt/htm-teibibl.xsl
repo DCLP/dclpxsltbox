@@ -26,10 +26,15 @@
           <xsl:call-template name="bpId" /></p>
       </div>
     </xsl:if>
-    <div class="biblio">
+    <xsl:choose>
+      <xsl:when test="ancestor::t:div[@type='commentary']"><a href="{t:ref/@target}"><xsl:value-of select="t:ref"/></a></xsl:when>
+    <xsl:otherwise>
+      <div class="biblio">
       <h4>Provisional papyri.info output</h4>
       <p><xsl:call-template name="buildCitation"/><xsl:text> [</xsl:text><a href="{t:idno[@type='pi']}/source">xml</a><xsl:text>] [</xsl:text><a class="button" id="editbibl" href="/editor/publications/create_from_identifier/papyri.info/biblio/{t:idno[@type='pi']}">edit</a> <xsl:text>]</xsl:text></p>
     </div>
+    </xsl:otherwise>
+    </xsl:choose>
     <xsl:if test="count(t:relatedItem[@type='mentions']/t:bibl) &gt; 0">
       <div class="biblio">
         <h4>Mentioned Texts</h4>
@@ -50,12 +55,23 @@
     <xsl:variable name="articleTitle"><xsl:call-template name="articleTitle"/></xsl:variable>
     <xsl:variable name="mainTitle"><xsl:choose>
       <xsl:when test="(@type='article' or @type='review') and $mainWork//*"><xsl:apply-templates select="$mainWork/t:bibl" mode="mainTitle"/></xsl:when>
-      <xsl:otherwise><i><xsl:value-of select="t:title[@type='main']"/></i><xsl:if test="t:title[@type='short']"> (<i><xsl:value-of select="t:title[@type='short']"/></i>)</xsl:if></xsl:otherwise>
+      <xsl:otherwise>
+          <xsl:choose>
+            <xsl:when test="t:title[@type='main']">
+              <i><xsl:value-of select="t:title[@type='main']"/></i><xsl:if test="t:title[@type='short']"> (<i><xsl:value-of select="t:title[@type='short']"/></i>)</xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+              <i><xsl:value-of select="t:title[1]"/></i>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:otherwise>
     </xsl:choose></xsl:variable>
+    <xsl:message>mainTitle: <xsl:value-of select="$mainTitle"/></xsl:message>
+    <xsl:message>count(title): <xsl:value-of select="count(t:title)"/></xsl:message>
     <xsl:variable name="pubInfo"><xsl:call-template name="pubInfo"><xsl:with-param name="main" select="$mainWork"/></xsl:call-template></xsl:variable>
-    <b><xsl:value-of select="t:idno[@type='pi']"/>. </b> <xsl:if test="string-length($author) > 0"><xsl:value-of select="$author"/>, </xsl:if>
+    <xsl:if test="t:idno[@type='pi']"><b><xsl:value-of select="t:idno[@type='pi']"/>. </b> </xsl:if><xsl:if test="string-length($author) > 0"><xsl:value-of select="$author"/>, </xsl:if>
       <xsl:if test="$edFirst"><xsl:value-of select="normalize-space($editor)"/>, </xsl:if>
-    <xsl:if test="t:relatedItem[@type='appearsIn']"><xsl:if test="t:title">"</xsl:if><xsl:copy-of select="$articleTitle"/><xsl:if test="@subtype='journal'">,</xsl:if><xsl:if test="t:title">"</xsl:if> </xsl:if>
+    <xsl:if test="t:relatedItem[@type='appearsIn']"><xsl:if test="t:title">"</xsl:if><xsl:copy-of select="$articleTitle"/><xsl:if test="@subtype='journal'">,</xsl:if><xsl:if test="t:title">"</xsl:if><xsl:text> </xsl:text></xsl:if>
       <xsl:copy-of select="$mainTitle"/><xsl:if test="string-length($pubInfo) > 0">, </xsl:if><xsl:value-of select="$pubInfo"/>. </xsl:template>
   
   <xsl:template name="author">
@@ -98,7 +114,7 @@
       <!-- article in journal -->
       <xsl:when test="$main//t:title[@level='j']">
         <!-- TODO: get additional biblScope values -->
-        <xsl:value-of select="t:biblScope[@type='issue']"/><xsl:text> </xsl:text><xsl:if test="t:date">(<xsl:value-of select="t:date"/>)</xsl:if>
+        <xsl:value-of select="t:biblScope[@type='issue']"/><xsl:text> </xsl:text><xsl:if test="t:date">(<xsl:value-of select="t:date"/>)</xsl:if>, pp. <xsl:if test="t:biblScope[@type='pp']"><xsl:call-template name="pages"/></xsl:if>
       </xsl:when>
       <!-- article in book -->
       <xsl:when test="$main//t:title[@level='m']">
