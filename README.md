@@ -11,13 +11,13 @@ Several components are needed in order to set up a local working environment, in
 
     ```git clone git@github.com:DCLP/dclpxsltbox.git```
 
-    This gets you a local copy of this dclpxsltbox repository, which contains transform tools and a place to put results for sharing back to github.
+    This gets you a working copy of the dclpxsltbox repository, which contains transform tools and a place to put results for sharing back to github. The "master" branch, which is checked out by default by ```git clone``` represents the tested, deploy-to-production branch of the code in this repository.
 
 4. Now issue this command in ```{your-working-dir}```:
 
-    ```git clone git@github.com:DCLP/navigator.git -b xslt-master```
+    ```git clone git@github.com:DCLP/navigator.git```
 
-    This gets you the **"xslt-master" branch** of the **"DCLP" fork** of the *Papyrological Navigator (PN)* code, which includes the PN-specific XSLT files that we are working on, i.e., navigator/pn-xslt)
+    This gets you a working copy of the **"DCLP" fork** of the *Papyrological Navigator (PN)* code, which includes the PN-specific XSLT files that we are working on, i.e., navigator/pn-xslt). The "master" branch, which is checked out by default by ```git clone``` represents the tested, deploy-to-production branch of the DCLP version of the Papyrological Navigator.
 
 5. Now cd into the ```navigator``` directory that contains the clone you just created in step 4.
 
@@ -27,17 +27,17 @@ Several components are needed in order to set up a local working environment, in
 
     **Change {USERNAME} to your sourceforge username.**
 
-    This gets you a R/W checkout of the DCLP branch of the EpiDoc example stylesheets, which provide core style to the PN; make sure you check out the **"dclp" branch** and that you name it as indicated! If you follow the code snippet above exactly, that should happen automatically.
+    This gets you a R/W checkout of the **"DCLP" branch** of the EpiDoc example stylesheets, which provide core style to the PN. **Make sure you check out the "dclp" branch and that you name it as indicated!** If you follow the code snippet above exactly, that should happen automatically.
 
 7. cd back to ```{your-working-directory}```
 
 8. Issue the following command:
 
-    ```git clone git@github.com:DCLP/idp.data.git -b dclp```
+    ```git clone git@github.com:DCLP/idp.data.git```
 
-    This gets you the **"dclp" branch** of the big papyrological data repository; you may want to go get a cup of tea while this is cloning.
+    This gets you a working copy of the big papyrological data repository; you may want to go get a cup of tea while this is cloning. The "master" branch, which is checked out by default by ```git clone``` represents the tested, deploy-to-production branch of the data in this repository.
 
-You should end up with a directory structure that looks like this (irrelevant subdirectories have been ommitted from the listing, replaced by ellipses):
+You should end up with a directory structure that looks like this (irrelevant subdirectories have been omitted from the listing, replaced by ellipses):
 
 <pre>{your-working-directory}/
     dclpxsltbox/
