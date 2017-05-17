@@ -54,7 +54,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Vienna, Nationalbibliothek K 898; Vienna, Nationalbibliothek K 7501; Vienna, Nationalbibliothek K 7502; Vienna, Nationalbibliothek K 7506; Vienna, Nationalbibliothek K 7507; Vienna, Nationalbibliothek K 7509; Vienna, Nationalbibliothek K 7510; Vienna, Nationalbibliothek K 7513; Vienna, Nationalbibliothek K 7514; Vienna, Nationalbibliothek K 7517; Vienna, Nationalbibliothek K 7518; Vienna, Nationalbibliothek K 7519; Vienna, Nationalbibliothek K 7521; Vienna, Nationalbibliothek K 7522 a; Vienna, Nationalbibliothek K 7523; Vienna, Nationalbibliothek K 7524; Vienna, Nationalbibliothek K 7525</td>
+                                    <td>Vienna, Nationalbibliothek K 898; Vienna, Nationalbibliothek K 7501; Vienna, Nationalbibliothek K 7502; Vienna, Nationalbibliothek K 7506; Vienna, Nationalbibliothek K 7507; Vienna, Nationalbibliothek K 7509; Vienna, Nationalbibliothek K 7510; Vienna, Nationalbibliothek K 7513; Vienna, Nationalbibliothek K 7514<span class="fragmentsMetadata" style="display:none;">; Vienna, Nationalbibliothek K 7517; Vienna, Nationalbibliothek K 7518; Vienna, Nationalbibliothek K 7519; Vienna, Nationalbibliothek K 7521; Vienna, Nationalbibliothek K 7522 a; Vienna, Nationalbibliothek K 7523; Vienna, Nationalbibliothek K 7524; Vienna, Nationalbibliothek K 7525</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

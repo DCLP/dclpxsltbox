@@ -58,7 +58,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 1003 II 426; P.Herc. 1003 II 427; P.Herc. 1003 II 428; P.Herc. 1003 II 429; P.Herc. 1003 II 430; P.Herc. 1003 II 431; P.Herc. 1003 II 432; P.Herc. 1003 II 433; P.Herc. 1003 II 434; P.Herc. 1003 II 435; P.Herc. 1003 Subscriptio</td>
+                                    <td>P.Herc. 1003 II 426; P.Herc. 1003 II 427; P.Herc. 1003 II 428; P.Herc. 1003 II 429; P.Herc. 1003 II 430; P.Herc. 1003 II 431; P.Herc. 1003 II 432; P.Herc. 1003 II 433; P.Herc. 1003 II 434<span class="fragmentsMetadata" style="display:none;">; P.Herc. 1003 II 435; P.Herc. 1003 Subscriptio</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

@@ -59,9 +59,13 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Cairo, Patriarchate Library 21; Cairo, Patriarchate Library 32; New York, Pierpont Morgan Library M 664 A (3); Oxford, Bodleian Library MS. Copt. e. 178 (P); Oxford, Bodleian Library MS. Copt. e. 174 (P); Paris, Bibliothèque Nationale Copte 129 (4) (fol. 13, 18); Paris, Bibliothèque Nationale Copte 129 (5) (fol. 165); Paris, Bibliothèque Nationale Copte 129 (6) (fol. 14, 33); Paris, Bibliothèque Nationale Copte 129 (7) (fol. 64); Paris, Bibliothèque Nationale Copte 132 (3) (fol. 248); Paris, Bibliothèque Nationale Copte 133 (1) (fol. 66, 67, 69, 73 d, 127); Paris, Bibliothèque Nationale Copte 161 (2) (fol. 18); Rome, Vatican, Biblioteca del Vaticano Raccolta Borgiana Copto 109 Cassetta 14 fasc.
-                                       47 (fol. 1-3); Vienna, Nationalbibliothek K 9030; Cairo, Coptic Museum 3868; Cairo, Coptic Museum 3871
-                                    </td>
+                                    <td>Cairo, Patriarchate Library 21; Cairo, Patriarchate Library 32; New York, Pierpont Morgan Library M 664 A (3); Oxford, Bodleian Library MS. Copt. e. 178 (P); Oxford, Bodleian Library MS. Copt. e. 174 (P); Paris, Bibliothèque Nationale Copte 129 (4) (fol. 13, 18); Paris, Bibliothèque Nationale Copte 129 (5) (fol. 165); Paris, Bibliothèque Nationale Copte 129 (6) (fol. 14, 33); Paris, Bibliothèque Nationale Copte 129 (7) (fol. 64)<span class="fragmentsMetadata" style="display:none;">; Paris, Bibliothèque Nationale Copte 132 (3) (fol. 248); Paris, Bibliothèque Nationale Copte 133 (1) (fol. 66, 67, 69, 73 d, 127); Paris, Bibliothèque Nationale Copte 161 (2) (fol. 18); Rome, Vatican, Biblioteca del Vaticano Raccolta Borgiana Copto 109 Cassetta 14 fasc.
+                                          47 (fol. 1-3); Vienna, Nationalbibliothek K 9030; Cairo, Coptic Museum 3868; Cairo, Coptic Museum 3871</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

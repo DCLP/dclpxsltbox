@@ -137,7 +137,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 1008 Subscriptio; P.Herc. 1008 fr. 1; P.Herc. 1008 col. 1; P.Herc. 1008 col. 2; P.Herc. 1008 col. 3; P.Herc. 1008 col. 4; P.Herc. 1008 col. 5; P.Herc. 1008 col. 7; P.Herc. 1008 col. 8; P.Herc. 1008 col. 9; P.Herc. 1008 col. 10; P.Herc. 1008 col. 11; P.Herc. 1008 col. 12; P.Herc. 1008 col. 13; P.Herc. 1008 col. 14; P.Herc. 1008 col. 15; P.Herc. 1008 col. 16; P.Herc. 1008 col. 17; P.Herc. 1008 col. 18; P.Herc. 1008 col. 19; P.Herc. 1008 col. 20; P.Herc. 1008 col. 21; P.Herc. 1008 col. 22; P.Herc. 1008 col. 23; P.Herc. 1008 col. 24</td>
+                                    <td>P.Herc. 1008 Subscriptio; P.Herc. 1008 fr. 1; P.Herc. 1008 col. 1; P.Herc. 1008 col. 2; P.Herc. 1008 col. 3; P.Herc. 1008 col. 4; P.Herc. 1008 col. 5; P.Herc. 1008 col. 7; P.Herc. 1008 col. 8<span class="fragmentsMetadata" style="display:none;">; P.Herc. 1008 col. 9; P.Herc. 1008 col. 10; P.Herc. 1008 col. 11; P.Herc. 1008 col. 12; P.Herc. 1008 col. 13; P.Herc. 1008 col. 14; P.Herc. 1008 col. 15; P.Herc. 1008 col. 16; P.Herc. 1008 col. 17; P.Herc. 1008 col. 18; P.Herc. 1008 col. 19; P.Herc. 1008 col. 20; P.Herc. 1008 col. 21; P.Herc. 1008 col. 22; P.Herc. 1008 col. 23; P.Herc. 1008 col. 24</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

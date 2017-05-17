@@ -56,7 +56,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Copenhagen, Carlsberg Papyrus Collection P. 324 Ro; Copenhagen, Carlsberg Papyrus Collection P. 394 Ro; Ann Arbor, Michigan University, Library P. 6391 (g) Ro; Ann Arbor, Michigan University, Library P. 6397 (r) Ro; Florence, Istituto Papirologico 'G. Vitelli' PSI inv. D 8 Ro; Florence, Istituto Papirologico 'G. Vitelli' PSI inv. D 9 Ro; New Haven, Yale University, Beinecke Library P. CtYBR 889 Ro; New Haven, Yale University, Beinecke Library P. CtYBR 4100 (5) Ro; New Haven, Yale University, Beinecke Library P. CtYBR 4947 (3) Ro; Berlin, Ägyptisches Museum P. 30022 Ro; Berlin, Ägyptisches Museum P. 14467 e Ro</td>
+                                    <td>Copenhagen, Carlsberg Papyrus Collection P. 324 Ro; Copenhagen, Carlsberg Papyrus Collection P. 394 Ro; Ann Arbor, Michigan University, Library P. 6391 (g) Ro; Ann Arbor, Michigan University, Library P. 6397 (r) Ro; Florence, Istituto Papirologico 'G. Vitelli' PSI inv. D 8 Ro; Florence, Istituto Papirologico 'G. Vitelli' PSI inv. D 9 Ro; New Haven, Yale University, Beinecke Library P. CtYBR 889 Ro; New Haven, Yale University, Beinecke Library P. CtYBR 4100 (5) Ro; New Haven, Yale University, Beinecke Library P. CtYBR 4947 (3) Ro<span class="fragmentsMetadata" style="display:none;">; Berlin, Ägyptisches Museum P. 30022 Ro; Berlin, Ägyptisches Museum P. 14467 e Ro</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

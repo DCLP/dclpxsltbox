@@ -84,7 +84,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>London, University College, Petrie Museum UC 62577; London, University College, Petrie Museum UC 62578; London, University College, Petrie Museum UC 62579; London, University College, Petrie Museum UC 62590; London, University College, Petrie Museum UC 62580; London, University College, Petrie Museum UC 62587; London, University College, Petrie Museum UC 62581; London, University College, Petrie Museum UC 62582; London, University College, Petrie Museum UC 62585; London, University College, Petrie Museum UC 62591; London, University College, Petrie Museum UC 62586; London, University College, Petrie Museum UC 62588; London, University College, Petrie Museum UC 62589; London, University College, Petrie Museum UC 32884 Vo</td>
+                                    <td>London, University College, Petrie Museum UC 62577; London, University College, Petrie Museum UC 62578; London, University College, Petrie Museum UC 62579; London, University College, Petrie Museum UC 62590; London, University College, Petrie Museum UC 62580; London, University College, Petrie Museum UC 62587; London, University College, Petrie Museum UC 62581; London, University College, Petrie Museum UC 62582; London, University College, Petrie Museum UC 62585<span class="fragmentsMetadata" style="display:none;">; London, University College, Petrie Museum UC 62591; London, University College, Petrie Museum UC 62586; London, University College, Petrie Museum UC 62588; London, University College, Petrie Museum UC 62589; London, University College, Petrie Museum UC 32884 Vo</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

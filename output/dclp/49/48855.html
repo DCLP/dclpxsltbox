@@ -48,7 +48,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Cairo, Egyptian Museum JdE 89127 Ro; Cairo, Egyptian Museum JdE 89128 Ro; Cairo, Egyptian Museum JdE 89129 Ro; Cairo, Egyptian Museum JdE 89130 Ro; Cairo, Egyptian Museum JdE 89137 Ro; Cairo, Egyptian Museum JdE 89138 Ro; Cairo, Egyptian Museum JdE 89139 Ro; Cairo, Egyptian Museum JdE 89140 Ro; Cairo, Egyptian Museum JdE 89141 Ro; Cairo, Egyptian Museum JdE 89142 Ro; Cairo, Egyptian Museum JdE 89143 Ro</td>
+                                    <td>Cairo, Egyptian Museum JdE 89127 Ro; Cairo, Egyptian Museum JdE 89128 Ro; Cairo, Egyptian Museum JdE 89129 Ro; Cairo, Egyptian Museum JdE 89130 Ro; Cairo, Egyptian Museum JdE 89137 Ro; Cairo, Egyptian Museum JdE 89138 Ro; Cairo, Egyptian Museum JdE 89139 Ro; Cairo, Egyptian Museum JdE 89140 Ro; Cairo, Egyptian Museum JdE 89141 Ro<span class="fragmentsMetadata" style="display:none;">; Cairo, Egyptian Museum JdE 89142 Ro; Cairo, Egyptian Museum JdE 89143 Ro</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

@@ -56,7 +56,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Montreal, McGill University Ms NO Coptic 2; Montserrat, Abadia Roca 1227; Montserrat, Abadia Roca 1228; Montserrat, Abadia Roca 1230; Montserrat, Abadia Roca 1250; Montserrat, Abadia Roca 604; Montserrat, Abadia Roca 1235; Montserrat, Abadia Roca 1231; Montserrat, Abadia Roca 1236; Montserrat, Abadia Roca 1238; Montserrat, Abadia Roca 645; Montserrat, Abadia Roca 1098; Montserrat, Abadia Roca 1239; Montserrat, Abadia Roca 643; Montserrat, Abadia Roca 728; Montserrat, Abadia Roca 1229; Montserrat, Abadia Roca 1233; Montserrat, Abadia Roca 1237; Barcelona, Palau-Ribes 96</td>
+                                    <td>Montreal, McGill University Ms NO Coptic 2; Montserrat, Abadia Roca 1227; Montserrat, Abadia Roca 1228; Montserrat, Abadia Roca 1230; Montserrat, Abadia Roca 1250; Montserrat, Abadia Roca 604; Montserrat, Abadia Roca 1235; Montserrat, Abadia Roca 1231; Montserrat, Abadia Roca 1236<span class="fragmentsMetadata" style="display:none;">; Montserrat, Abadia Roca 1238; Montserrat, Abadia Roca 645; Montserrat, Abadia Roca 1098; Montserrat, Abadia Roca 1239; Montserrat, Abadia Roca 643; Montserrat, Abadia Roca 728; Montserrat, Abadia Roca 1229; Montserrat, Abadia Roca 1233; Montserrat, Abadia Roca 1237; Barcelona, Palau-Ribes 96</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>
