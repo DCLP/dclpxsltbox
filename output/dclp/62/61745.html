@@ -57,7 +57,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Oxford, Clarendon Press b.2 (fol. 12-19, 26); London, British Library Add MS 34274 (fol. 52); London, British Library Or 3579 B (29) (fol. 46, 47); Paris, Bibliothèque Nationale Copte 129 (7) (fol. 14, 72); Paris, Bibliothèque Nationale Copte 129 (9) (fol. 87); Paris, Bibliothèque Nationale Copte 129 (8) (fol. 89-90, 147-154); Paris, Bibliothèque Nationale Copte 132 (2) (fol. 75, 92); Paris, Bibliothèque Nationale Copte 129 (10) (fol. 119-124, 156, 164); Paris, Bibliothèque Nationale Copte 133 (1) (fol. 120); Paris, Louvre 10014; Paris, Louvre 10051; Paris, Louvre 10092 k; Vienna, Nationalbibliothek K 9007; Vienna, Nationalbibliothek K 9031; Vienna, Nationalbibliothek K 2699; Vienna, Nationalbibliothek K 2700; Vienna, Nationalbibliothek K 15</td>
+                                    <td>Oxford, Clarendon Press b.2 (fol. 12-19, 26); London, British Library Add MS 34274 (fol. 52); London, British Library Or 3579 B (29) (fol. 46, 47); Paris, Bibliothèque Nationale Copte 129 (7) (fol. 14, 72); Paris, Bibliothèque Nationale Copte 129 (9) (fol. 87); Paris, Bibliothèque Nationale Copte 129 (8) (fol. 89-90, 147-154); Paris, Bibliothèque Nationale Copte 132 (2) (fol. 75, 92); Paris, Bibliothèque Nationale Copte 129 (10) (fol. 119-124, 156, 164); Paris, Bibliothèque Nationale Copte 133 (1) (fol. 120)<span class="fragmentsMetadata" style="display:none;">; Paris, Louvre 10014; Paris, Louvre 10051; Paris, Louvre 10092 k; Vienna, Nationalbibliothek K 9007; Vienna, Nationalbibliothek K 9031; Vienna, Nationalbibliothek K 2699; Vienna, Nationalbibliothek K 2700; Vienna, Nationalbibliothek K 15</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

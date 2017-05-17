@@ -52,7 +52,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Innsbruck, Landesmuseum FB 32.140 A-F; London, British Library Add MS 18301 (fol. 1); London, British Library Add MS 18304 (fol. 2-3, 100-101); London, British Library Add MS 18322 (fol. 2); London, British Library Add MS 18344 (fol. 2); London, British Library Add MS 18347 (fol. 2); London, British Library Add MS 19349 (fol. 2); London, British Library Add MS 18350 (fol. 150); Basel, Universitätsbibliothek N I 1 no. 7; Stuttgart, Württembergische Landesbibliothek Codex Donaueschingen B III 17 (925); Location unknown, Private collection Edgerton 3273 (fol. 2, strips)</td>
+                                    <td>Innsbruck, Landesmuseum FB 32.140 A-F; London, British Library Add MS 18301 (fol. 1); London, British Library Add MS 18304 (fol. 2-3, 100-101); London, British Library Add MS 18322 (fol. 2); London, British Library Add MS 18344 (fol. 2); London, British Library Add MS 18347 (fol. 2); London, British Library Add MS 19349 (fol. 2); London, British Library Add MS 18350 (fol. 150); Basel, Universitätsbibliothek N I 1 no. 7<span class="fragmentsMetadata" style="display:none;">; Stuttgart, Württembergische Landesbibliothek Codex Donaueschingen B III 17 (925); Location unknown, Private collection Edgerton 3273 (fol. 2, strips)</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

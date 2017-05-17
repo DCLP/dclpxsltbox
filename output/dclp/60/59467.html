@@ -67,7 +67,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 208 Subscriptio; P.Herc. 208 fr. 1; P.Herc. 208 fr. 2; P.Herc. 208 fr. 3; P.Herc. 208 fr. 4; P.Herc. 208 col. 1; P.Herc. 208 col. 2; P.Herc. 208 col. 3; P.Herc. 208 col. 4; P.Herc. 208 col. 5; P.Herc. 208 col. 6; P.Herc. 208 col. 7; P.Herc. 208 col. 8ab; P.Herc. 208 col. 8; P.Herc. 208 col. 9; P.Herc. 208 col. 10b; P.Herc. 208 col. 10b*; P.Herc. 208 col. 10d; P.Herc. 208 col. 10e; P.Herc. 208 col. 10f; P.Herc. 208 col. 10; P.Herc. 208 col. 11b; P.Herc. 208 col. 11cd; P.Herc. 208 col. 11; P.Herc. 208 col. 12a; P.Herc. 208 col. 12b; P.Herc. 208 col. 12c; P.Herc. 208</td>
+                                    <td>P.Herc. 208 Subscriptio; P.Herc. 208 fr. 1; P.Herc. 208 fr. 2; P.Herc. 208 fr. 3; P.Herc. 208 fr. 4; P.Herc. 208 col. 1; P.Herc. 208 col. 2; P.Herc. 208 col. 3; P.Herc. 208 col. 4<span class="fragmentsMetadata" style="display:none;">; P.Herc. 208 col. 5; P.Herc. 208 col. 6; P.Herc. 208 col. 7; P.Herc. 208 col. 8ab; P.Herc. 208 col. 8; P.Herc. 208 col. 9; P.Herc. 208 col. 10b; P.Herc. 208 col. 10b*; P.Herc. 208 col. 10d; P.Herc. 208 col. 10e; P.Herc. 208 col. 10f; P.Herc. 208 col. 10; P.Herc. 208 col. 11b; P.Herc. 208 col. 11cd; P.Herc. 208 col. 11; P.Herc. 208 col. 12a; P.Herc. 208 col. 12b; P.Herc. 208 col. 12c; P.Herc. 208</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

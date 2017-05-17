@@ -62,7 +62,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 89 Subscriptio; P.Herc. 89 fr. 1; P.Herc. 89 fr. 2; P.Herc. 89 fr. 3; P.Herc. 89 fr. 4; P.Herc. 89 fr. 5; P.Herc. 89 fr. 6; P.Herc. 89 fr. 7; P.Herc. 89 fr. 8; P.Herc. 89 fr. 9; P.Herc. 89 fr. 10; P.Herc. 89 fr. 11; P.Herc. 89 fr. 12; P.Herc. 89 fr. 13; P.Herc. 89 fr. 14; P.Herc. 89 fr. 15; P.Herc. 89 fr. 16; P.Herc. 89 fr. 17; P.Herc. 89 fr. 18</td>
+                                    <td>P.Herc. 89 Subscriptio; P.Herc. 89 fr. 1; P.Herc. 89 fr. 2; P.Herc. 89 fr. 3; P.Herc. 89 fr. 4; P.Herc. 89 fr. 5; P.Herc. 89 fr. 6; P.Herc. 89 fr. 7; P.Herc. 89 fr. 8<span class="fragmentsMetadata" style="display:none;">; P.Herc. 89 fr. 9; P.Herc. 89 fr. 10; P.Herc. 89 fr. 11; P.Herc. 89 fr. 12; P.Herc. 89 fr. 13; P.Herc. 89 fr. 14; P.Herc. 89 fr. 15; P.Herc. 89 fr. 16; P.Herc. 89 fr. 17; P.Herc. 89 fr. 18</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

@@ -90,7 +90,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 1384 col. A; P.Herc. 1384 col. B; P.Herc. 1384 col. 15, col. 16, col. 17; P.Herc. 1384 col. 19, col. 20; P.Herc. 1384 col. 22; P.Herc. 1384 col. 24; P.Herc. 1384 col. 25; P.Herc. 1384 col. 27; P.Herc. 1384 col. 26, col. 28B; P.Herc. 1384 col. 30; P.Herc. 1384 col. 31; P.Herc. 1384 col. 33; P.Herc. 1384 col. 40; P.Herc. 1384 col. 41; P.Herc. 1384 col. 45</td>
+                                    <td>P.Herc. 1384 col. A; P.Herc. 1384 col. B; P.Herc. 1384 col. 15, col. 16, col. 17; P.Herc. 1384 col. 19, col. 20; P.Herc. 1384 col. 22; P.Herc. 1384 col. 24; P.Herc. 1384 col. 25; P.Herc. 1384 col. 27; P.Herc. 1384 col. 26, col. 28B<span class="fragmentsMetadata" style="display:none;">; P.Herc. 1384 col. 30; P.Herc. 1384 col. 31; P.Herc. 1384 col. 33; P.Herc. 1384 col. 40; P.Herc. 1384 col. 41; P.Herc. 1384 col. 45</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

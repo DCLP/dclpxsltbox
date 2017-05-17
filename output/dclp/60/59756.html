@@ -110,7 +110,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 1042 Subscriptio; P.Herc. 1042 [26.20]; P.Herc. 1042 [26.21]; P.Herc. 1042 [26.22]; P.Herc. 1042 [26.24]; P.Herc. 1042 [26.25]; P.Herc. 1042 [26.26]; P.Herc. 1042 [26.27]; P.Herc. 1042 [26.28]; P.Herc. 1042 [26.30]; P.Herc. 1042 [26.32]; P.Herc. 1042 [26.33]; P.Herc. 1042 [26.34]; P.Herc. 1042 [26.35]; P.Herc. 1042 [26.36]; P.Herc. 1042 [26.37]; P.Herc. 1042 [26.38]; P.Herc. 1042 [26.39]; P.Herc. 1042 [26.40]; P.Herc. 1042 [26.41]; P.Herc. 1042 [26.42]; P.Herc. 1042 [26.43]; P.Herc. 1042 [26.44]; P.Herc. 1042 [26.45]</td>
+                                    <td>P.Herc. 1042 Subscriptio; P.Herc. 1042 [26.20]; P.Herc. 1042 [26.21]; P.Herc. 1042 [26.22]; P.Herc. 1042 [26.24]; P.Herc. 1042 [26.25]; P.Herc. 1042 [26.26]; P.Herc. 1042 [26.27]; P.Herc. 1042 [26.28]<span class="fragmentsMetadata" style="display:none;">; P.Herc. 1042 [26.30]; P.Herc. 1042 [26.32]; P.Herc. 1042 [26.33]; P.Herc. 1042 [26.34]; P.Herc. 1042 [26.35]; P.Herc. 1042 [26.36]; P.Herc. 1042 [26.37]; P.Herc. 1042 [26.38]; P.Herc. 1042 [26.39]; P.Herc. 1042 [26.40]; P.Herc. 1042 [26.41]; P.Herc. 1042 [26.42]; P.Herc. 1042 [26.43]; P.Herc. 1042 [26.44]; P.Herc. 1042 [26.45]</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

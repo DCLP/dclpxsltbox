@@ -77,7 +77,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 1151 Subscriptio; P.Herc. 1151 fr. 1; P.Herc. 1151 fr. 2; P.Herc. 1151 fr. 3; P.Herc. 1151 fr. 4; P.Herc. 1151 fr. 5; P.Herc. 1151 fr. 6; P.Herc. 1151 fr. 7; P.Herc. 1151 fr. 8; P.Herc. 1151 fr. 9; P.Herc. 1151 fr. 10; P.Herc. 1151 fr. 11; P.Herc. 1151 fr. 12; P.Herc. 1151 fr. 13; P.Herc. 1151 fr. 14; P.Herc. 1151 fr. 15; P.Herc. 1151 fr. 16; P.Herc. 1151 fr. 17; P.Herc. 1151 fr. 18; P.Herc. 1151 fr. 19; P.Herc. 1151 fr. 20; P.Herc. 1151 fr. 21; P.Herc. 1151 fr. 22; P.Herc. 1151 fr. 23; P.Herc. 1151 fr. 24; P.Herc. 1151 fr. 25; P.Herc. 1151 fr. 26; P.Herc. 1151 fr. 27; P.Herc. 1151 fr. 28; P.Herc. 1151 fr. 29; P.Herc. 1151 fr. 30; P.Herc. 1151 fr. 31; P.Herc. 1151 fr. 32; P.Herc. 1151 fr. 33; P.Herc. 1151 fr. 34; P.Herc. 1151 fr. 34; P.Herc. 1151</td>
+                                    <td>P.Herc. 1151 Subscriptio; P.Herc. 1151 fr. 1; P.Herc. 1151 fr. 2; P.Herc. 1151 fr. 3; P.Herc. 1151 fr. 4; P.Herc. 1151 fr. 5; P.Herc. 1151 fr. 6; P.Herc. 1151 fr. 7; P.Herc. 1151 fr. 8<span class="fragmentsMetadata" style="display:none;">; P.Herc. 1151 fr. 9; P.Herc. 1151 fr. 10; P.Herc. 1151 fr. 11; P.Herc. 1151 fr. 12; P.Herc. 1151 fr. 13; P.Herc. 1151 fr. 14; P.Herc. 1151 fr. 15; P.Herc. 1151 fr. 16; P.Herc. 1151 fr. 17; P.Herc. 1151 fr. 18; P.Herc. 1151 fr. 19; P.Herc. 1151 fr. 20; P.Herc. 1151 fr. 21; P.Herc. 1151 fr. 22; P.Herc. 1151 fr. 23; P.Herc. 1151 fr. 24; P.Herc. 1151 fr. 25; P.Herc. 1151 fr. 26; P.Herc. 1151 fr. 27; P.Herc. 1151 fr. 28; P.Herc. 1151 fr. 29; P.Herc. 1151 fr. 30; P.Herc. 1151 fr. 31; P.Herc. 1151 fr. 32; P.Herc. 1151 fr. 33; P.Herc. 1151 fr. 34; P.Herc. 1151 fr. 34; P.Herc. 1151</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

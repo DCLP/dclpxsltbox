@@ -119,7 +119,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 1418 Subscriptio; P.Herc. 1418 col. 1; P.Herc. 1418 col. 2; P.Herc. 1418 col. 7; P.Herc. 1418 col. 10; P.Herc. 1418 col. 11; P.Herc. 1418 col. 12; P.Herc. 1418 col. 14; P.Herc. 1418 col. 15; P.Herc. 1418 col. 16; P.Herc. 1418 col. 18; P.Herc. 1418 col. 19; P.Herc. 1418 col. 20; P.Herc. 1418 col. 21; P.Herc. 1418 col. 22; P.Herc. 1418 col. 23; P.Herc. 1418 col. 24; P.Herc. 1418 col. 25; P.Herc. 1418 col. 26; P.Herc. 1418 col. 27; P.Herc. 1418 col. 28; P.Herc. 1418 col. 29; P.Herc. 1418 col. 30; P.Herc. 1418 col. 31; P.Herc. 1418 col. 32; P.Herc. 1418 col. 33; P.Herc. 1418 col. 34; P.Herc. 1418</td>
+                                    <td>P.Herc. 1418 Subscriptio; P.Herc. 1418 col. 1; P.Herc. 1418 col. 2; P.Herc. 1418 col. 7; P.Herc. 1418 col. 10; P.Herc. 1418 col. 11; P.Herc. 1418 col. 12; P.Herc. 1418 col. 14; P.Herc. 1418 col. 15<span class="fragmentsMetadata" style="display:none;">; P.Herc. 1418 col. 16; P.Herc. 1418 col. 18; P.Herc. 1418 col. 19; P.Herc. 1418 col. 20; P.Herc. 1418 col. 21; P.Herc. 1418 col. 22; P.Herc. 1418 col. 23; P.Herc. 1418 col. 24; P.Herc. 1418 col. 25; P.Herc. 1418 col. 26; P.Herc. 1418 col. 27; P.Herc. 1418 col. 28; P.Herc. 1418 col. 29; P.Herc. 1418 col. 30; P.Herc. 1418 col. 31; P.Herc. 1418 col. 32; P.Herc. 1418 col. 33; P.Herc. 1418 col. 34; P.Herc. 1418</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

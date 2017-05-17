@@ -60,8 +60,12 @@
                                  <tr>
                                     <th class="rowheader">Fragments</th>
                                     <td>London, British Library Or 3579 B (8) (fol. 9,10); Oxford, Bodleian Library Ms. Copt. d 271 (P.); Paris, Bibliothèque Nationale Copte 129 (5) (fol. 105, 120, 123, 124, 128); Paris, Bibliothèque Nationale Copte 129 (9) (fol. 79); Paris, Bibliothèque Nationale Copte 129 (10) (fol. 130, 141, 143); Paris, Bibliothèque Nationale Copte 132 (4) (fol. 313); Paris, Bibliothèque Nationale Copte 133 (1) (fol. 74, 87); Paris, Bibliothèque Nationale Copte 161 (2) (fol. 19a); Rome, Vatican, Biblioteca del Vaticano Raccolta Borgiana Copto 109 Cassetta 14 fasc.
-                                       48 (2 folia); Vienna, Nationalbibliothek K 9062; Vienna, Nationalbibliothek K 2621; Vienna, Nationalbibliothek K 2695; Vienna, Nationalbibliothek K 2845; Vienna, Nationalbibliothek K 3279; Vienna, Nationalbibliothek K 9063
-                                    </td>
+                                       48 (2 folia)<span class="fragmentsMetadata" style="display:none;">; Vienna, Nationalbibliothek K 9062; Vienna, Nationalbibliothek K 2621; Vienna, Nationalbibliothek K 2695; Vienna, Nationalbibliothek K 2845; Vienna, Nationalbibliothek K 3279; Vienna, Nationalbibliothek K 9063</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

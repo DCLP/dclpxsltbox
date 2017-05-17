@@ -57,7 +57,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Vienna, Nationalbibliothek K 7541; Vienna, Nationalbibliothek K 7542; Vienna, Nationalbibliothek K 7543; Vienna, Nationalbibliothek K 7544; Vienna, Nationalbibliothek K 7545; Vienna, Nationalbibliothek K 7546; Vienna, Nationalbibliothek K 7547; Vienna, Nationalbibliothek K 7548; Vienna, Nationalbibliothek K 7914; Vienna, Nationalbibliothek K 7384; Vienna, Nationalbibliothek K 7396; Vienna, Nationalbibliothek K 7426; Vienna, Nationalbibliothek K 7731; Vienna, Nationalbibliothek K 7377; Vienna, Nationalbibliothek K 7912</td>
+                                    <td>Vienna, Nationalbibliothek K 7541; Vienna, Nationalbibliothek K 7542; Vienna, Nationalbibliothek K 7543; Vienna, Nationalbibliothek K 7544; Vienna, Nationalbibliothek K 7545; Vienna, Nationalbibliothek K 7546; Vienna, Nationalbibliothek K 7547; Vienna, Nationalbibliothek K 7548; Vienna, Nationalbibliothek K 7914<span class="fragmentsMetadata" style="display:none;">; Vienna, Nationalbibliothek K 7384; Vienna, Nationalbibliothek K 7396; Vienna, Nationalbibliothek K 7426; Vienna, Nationalbibliothek K 7731; Vienna, Nationalbibliothek K 7377; Vienna, Nationalbibliothek K 7912</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

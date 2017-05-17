@@ -99,7 +99,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 1149 Subscriptio; P.Herc. 1149 [24.35]; P.Herc. 1149 [24.36]; P.Herc. 1149 [24.37]; P.Herc. 1149 [24.39]; P.Herc. 1149 [24.41]; P.Herc. 1149 [24.42]; P.Herc. 1149 [24.43]; P.Herc. 1149 [24.46]; P.Herc. 1149 [24.47]; P.Herc. 1149 [24.48]; P.Herc. 1149 [24.49]; P.Herc. 1149 [24.50]; P.Herc. 1149 [24.51]; P.Herc. 993 [24] [19]; P.Herc. 993 [24] [20]; P.Herc. 993 [24] [21]; P.Herc. 993 [24] [22]; P.Herc. 993 [24] [23]; P.Herc. 993 [24] [24]; P.Herc. 993 [24] [25]; P.Herc. 993 [24] [26]; P.Herc. 993 [24] [41]; P.Herc. 993 [24] [42]; P.Herc. 993 [24] [43]; P.Herc. 993 [24] [44]; P.Herc. 993 [24] [45]; P.Herc. 993 [24] [48]; P.Herc. 993 [24] [49]; P.Herc. 993 [24] [50]</td>
+                                    <td>P.Herc. 1149 Subscriptio; P.Herc. 1149 [24.35]; P.Herc. 1149 [24.36]; P.Herc. 1149 [24.37]; P.Herc. 1149 [24.39]; P.Herc. 1149 [24.41]; P.Herc. 1149 [24.42]; P.Herc. 1149 [24.43]; P.Herc. 1149 [24.46]<span class="fragmentsMetadata" style="display:none;">; P.Herc. 1149 [24.47]; P.Herc. 1149 [24.48]; P.Herc. 1149 [24.49]; P.Herc. 1149 [24.50]; P.Herc. 1149 [24.51]; P.Herc. 993 [24] [19]; P.Herc. 993 [24] [20]; P.Herc. 993 [24] [21]; P.Herc. 993 [24] [22]; P.Herc. 993 [24] [23]; P.Herc. 993 [24] [24]; P.Herc. 993 [24] [25]; P.Herc. 993 [24] [26]; P.Herc. 993 [24] [41]; P.Herc. 993 [24] [42]; P.Herc. 993 [24] [43]; P.Herc. 993 [24] [44]; P.Herc. 993 [24] [45]; P.Herc. 993 [24] [48]; P.Herc. 993 [24] [49]; P.Herc. 993 [24] [50]</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

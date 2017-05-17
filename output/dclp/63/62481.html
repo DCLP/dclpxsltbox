@@ -82,7 +82,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>P.Herc. 1538 Subscriptio; P.Herc. 1538 col. 27; P.Herc. 1538 col. 28; P.Herc. 1538 col. 29; P.Herc. 1538 col. 30; P.Herc. 1538 col. 32; P.Herc. 1538 col. 33; P.Herc. 1538 col. 34; P.Herc. 1538 col. 36; P.Herc. 1538 col. 37; P.Herc. 1538 col. 38; P.Herc. 1538 col. 39; P.Herc. 1538 Subscriptio; P.Herc. 1538 col. 1; P.Herc. 1538 col. 2; P.Herc. 1538 col. 3; P.Herc. 1538 col. 4; P.Herc. 1538 col. 5; P.Herc. 1538 col. 6; P.Herc. 1538 col. 7; P.Herc. 1538 col. 8; P.Herc. 1538 col. 9; P.Herc. 1538 col. 10</td>
+                                    <td>P.Herc. 1538 Subscriptio; P.Herc. 1538 col. 27; P.Herc. 1538 col. 28; P.Herc. 1538 col. 29; P.Herc. 1538 col. 30; P.Herc. 1538 col. 32; P.Herc. 1538 col. 33; P.Herc. 1538 col. 34; P.Herc. 1538 col. 36<span class="fragmentsMetadata" style="display:none;">; P.Herc. 1538 col. 37; P.Herc. 1538 col. 38; P.Herc. 1538 col. 39; P.Herc. 1538 Subscriptio; P.Herc. 1538 col. 1; P.Herc. 1538 col. 2; P.Herc. 1538 col. 3; P.Herc. 1538 col. 4; P.Herc. 1538 col. 5; P.Herc. 1538 col. 6; P.Herc. 1538 col. 7; P.Herc. 1538 col. 8; P.Herc. 1538 col. 9; P.Herc. 1538 col. 10</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>

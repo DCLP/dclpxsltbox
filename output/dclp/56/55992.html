@@ -48,7 +48,12 @@
                                  </tr>
                                  <tr>
                                     <th class="rowheader">Fragments</th>
-                                    <td>Vienna, Nationalbibliothek D 6278; Vienna, Nationalbibliothek D 6282; Vienna, Nationalbibliothek D 6289; Vienna, Nationalbibliothek D 6698; Vienna, Nationalbibliothek D 10111; Vienna, Nationalbibliothek D 6286; Vienna, Nationalbibliothek D 6287; Vienna, Nationalbibliothek D 6288; Vienna, Nationalbibliothek D 6279; Vienna, Nationalbibliothek D 6280; Vienna, Nationalbibliothek D 6281; Vienna, Nationalbibliothek D 6283; Vienna, Nationalbibliothek D 6284; Vienna, Nationalbibliothek D 6285</td>
+                                    <td>Vienna, Nationalbibliothek D 6278; Vienna, Nationalbibliothek D 6282; Vienna, Nationalbibliothek D 6289; Vienna, Nationalbibliothek D 6698; Vienna, Nationalbibliothek D 10111; Vienna, Nationalbibliothek D 6286; Vienna, Nationalbibliothek D 6287; Vienna, Nationalbibliothek D 6288; Vienna, Nationalbibliothek D 6279<span class="fragmentsMetadata" style="display:none;">; Vienna, Nationalbibliothek D 6280; Vienna, Nationalbibliothek D 6281; Vienna, Nationalbibliothek D 6283; Vienna, Nationalbibliothek D 6284; Vienna, Nationalbibliothek D 6285</span><span class="fragmentsMetadata">...</span><input type="button" class="toggleFragments" style="margin-left:.5em;                          background-color: transparent;                          text-decoration: underline;                          border: none; font-size:                          small; color: #162A5C;                          cursor: pointer;" value="[Show All Fragments]"><script type="text/javascript">
+                        $('.toggleFragments').click(function(){
+                            $(this).siblings('span.fragmentsMetadata').toggle();
+                            $(this).val( $(this).val() == '[Fewer Fragments]' ? '[Show All Fragments]' : '[Fewer Fragments]' );    
+                         });   
+                    </script></td>
                                  </tr>
                                  
                                  <tr>
