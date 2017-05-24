@@ -2,7 +2,7 @@ Core tools for managing XSLT development for the Digital Corpus of Literary Papy
 
 ##Setup
 
-Several components are needed in order to set up a local working environment, including clones of 3 github git repositories and a checkout of a sourceforge svn repository. Before you start, you'll need github and sourceforge credentials, and you'll need to have been added to the developer teams for the [Github organization "DCLP"](https://github.com/DCLP/) and for the [Sourceforge Project "EpiDoc"](http://epidoc.sf.net). You'll also need to set up ssh keys for working with both [Github](https://help.github.com/articles/generating-ssh-keys) and [SourceForge](http://sourceforge.net/apps/trac/sourceforge/wiki/SSH%20keys). Once you've done those things, follow this checklist:
+Several components are needed in order to set up a local working environment, including clones of 4 github git repositories. Before you start, you'll need github and sourceforge credentials, and you'll need to have been added to the developer teams for the [Github organization "DCLP"](https://github.com/DCLP/). You'll also need to set up ssh keys for working with [Github](https://help.github.com/articles/generating-ssh-keys). Once you've done those things, follow this checklist:
 
 1. Create a working directory on your local machine wherever you like. You can name it whatever you want. We'll call it ```{your-working-dir}``` for the rest of this setup.
 2. cd into ```{your-working-dir}```
@@ -18,19 +18,23 @@ Several components are needed in order to set up a local working environment, in
 
     This gets you a working copy of the **"DCLP" fork** of the *Papyrological Navigator (PN)* code, which includes the PN-specific XSLT files that we are working on, i.e., navigator/pn-xslt). The "master" branch, which is checked out by default by ```git clone``` represents the tested, deploy-to-production branch of the DCLP version of the Papyrological Navigator.
 
-5. Now cd into the ```navigator``` directory that contains the clone you just created in step 4.
+5. Issue this command in ```{your-working-dir}```:
 
-6. Issue this command in ```{your-working-dir}/navigator```:
+    ```git clone git@github.com:DCLP/epidoc-xslt.git```
 
-    ```svn checkout svn+ssh://{USERNAME}@svn.code.sf.net/p/epidoc/code/branches/dclp/example-p5-xslt epidoc-xslt```
+    This gets you a working copy of the **"DCLP" fork** of the EpiDoc example stylesheets, which provide core style to the PN. The "master" branch, which is checked out by default by ```git clone``` represents the tested, deploy-to-production branch of the DCLP version of the Stylesheets. 
 
-    **Change {USERNAME} to your sourceforge username.**
+6. Now cd into the ```navigator``` directory that contains the clone you  created in step 4.
 
-    This gets you a R/W checkout of the **"DCLP" branch** of the EpiDoc example stylesheets, which provide core style to the PN. **Make sure you check out the "dclp" branch and that you name it as indicated!** If you follow the code snippet above exactly, that should happen automatically.
+7. Issue this command in ```{your-working-dir}/navigator```:
 
-7. cd back to ```{your-working-directory}```
+    ```ln -s ../epidoc-xslt/example-p5-xslt/ ./epidoc-xslt```
 
-8. Issue the following command:
+    This step creates a symbolic link from ```{your-working-dir}/navigator/epidoc-xslt``` to the ```epidoc-xslt``` clone you created in step 5. This symbolic link permits the navigator xslt files to find the epidoc xslt files.
+
+8. Now cd back to ```{your-working-dir}```.
+
+9. Issue the following command:
 
     ```git clone git@github.com:DCLP/idp.data.git```
 
@@ -46,6 +50,8 @@ You should end up with a directory structure that looks like this (irrelevant su
         tests/
         xslt/
             quickview/
+    epidoc-xslt/
+        example-p5-xslt/
     idp.data/
         ...
         DCLP/
