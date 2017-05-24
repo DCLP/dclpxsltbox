@@ -1,6 +1,6 @@
 Core tools for managing XSLT development for the Digital Corpus of Literary Papyrology (DCLP) project. 
 
-##Setup
+## Setup
 
 Several components are needed in order to set up a local working environment, including clones of 4 github git repositories. Before you start, you'll need github and sourceforge credentials, and you'll need to have been added to the developer teams for the [Github organization "DCLP"](https://github.com/DCLP/). You'll also need to set up ssh keys for working with [Github](https://help.github.com/articles/generating-ssh-keys). Once you've done those things, follow this checklist:
 
@@ -63,7 +63,7 @@ You should end up with a directory structure that looks like this (irrelevant su
         pn-xslt/
 </pre>
 
-##Making changes
+## Making changes
 
 **"Master" means "production code". Never commit or merge changes to a "master" branch in any DCLP repository unless the code or data in question has been reviewed, tested, and deemed "ready to deploy."**
 
