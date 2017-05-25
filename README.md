@@ -49,7 +49,46 @@ You should end up with a directory structure that looks like this (irrelevant su
 
 ### Third-party software installation
 
+Software necessary to run the full XSL transformation (```dclpxsltbox/bin/2html.sh```) is included in the ```dclpxsltbox``` clone, so no additional installation is required. Installation of the OxygenXML editor or of a Saxon distribution may be of value to developers for doing one-off tests.
 
+Software installation is necessary to run the XSugar transformation tool for Leiden+ development and testing. Here is a checklist:
+
+1. Install Apache Maven:
+ 
+   on OSX: 
+
+   * ```brew install maven```
+ 
+   on Windows:
+
+   * Follow steps mentioned on website : http://maven.apache.org/download.cgi
+
+2. Install Ruby 1.6.8 (this unsupported, down version **is required**) using rbenv:
+
+   on OSX:
+
+   * ```brew install rbenv```
+   * Add the rbenv shim code to your shell startup and resource it. The line to add to your ~/.bash_profile is:
+      * ```eval "$(rbenv init -)"```
+   * ```brew install ruby-build```
+   * ```rbenv install jruby-1.6.8```
+
+   on Windows:
+
+   * Download jruby from [here](http://jruby.org/files/downloads/index.html)
+   * Add environment variable “path” and insert value of “path” as location of jruby/bin folder
+
+3. Cd into ```{your-working-directory}/xsugar``` and install the "bundler" Ruby gem: ```gem install bundler```. You may be prompted to install dependencies.
+
+4. Run coverage tests to verify installation and configuration. 
+
+   Use the “bundler” Ruby gem to execute the coverage tests on a small part of the Duke Databank data (to make sure everything is installed and working): 
+
+```
+bundle exec rake coverage:ddb \
+DDB_DATA_PATH=../idp.data/DDB_EpiDoc_XML/c.etiq.mom \
+SAMPLE_FRAGMENTS=-1 HTML_OUTPUT=../coverage.html
+```
 
 ## Making changes
 
