@@ -63,7 +63,7 @@ Software installation is necessary to run the XSugar transformation tool for Lei
 
    * Follow steps mentioned on website : http://maven.apache.org/download.cgi
 
-2. Install Ruby 1.6.8 (this unsupported, down version **is required**) using rbenv:
+2. Install Ruby 1.7.26 (this unsupported, down version **is required**) using rbenv:
 
    on OSX:
 
@@ -71,7 +71,7 @@ Software installation is necessary to run the XSugar transformation tool for Lei
    * Add the rbenv shim code to your shell startup and resource it. The line to add to your ~/.bash_profile is:
       * ```eval "$(rbenv init -)"```
    * ```brew install ruby-build```
-   * ```rbenv install jruby-1.6.8```
+   * ```rbenv install jruby-1.7.26```
 
    on Windows:
 
@@ -85,7 +85,7 @@ Software installation is necessary to run the XSugar transformation tool for Lei
    Use the “bundler” Ruby gem to execute the coverage tests on a small part of the Duke Databank data (to make sure everything is installed and working): 
 
 ```
-bundle exec rake coverage:ddb \
+jruby -Xcompat.version=1.8 -S bundle exec rake coverage:ddb \
 DDB_DATA_PATH=../idp.data/DDB_EpiDoc_XML/c.etiq.mom \
 SAMPLE_FRAGMENTS=-1 HTML_OUTPUT=../coverage.html
 ```
