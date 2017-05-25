@@ -20,10 +20,12 @@
     </teiHeader>
     <text>
         <body>
-            <div type="edition" xml:space="preserve" xml:lang="grc" corresp="#SMDH">
-                <ab>
-                    <lb/>αβγδεζη
-                </ab>
+            <div type="edition" xml:space="preserve" xml:lang="grc">
+                <div n="1" subtype="column" type="textpart" corresp="#SMDH">
+                    <ab>
+                        <lb/>αβγδεζη
+                    </ab>
+                </div>
             </div>
         </body>
     </text>
