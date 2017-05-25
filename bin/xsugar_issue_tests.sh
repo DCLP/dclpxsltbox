@@ -24,4 +24,4 @@ fi
 set -x #echo on
 
 cd xsugar
-jruby -Xcompat.version=1.8 -S bundle exec rake coverage:ddb DDB_DATA_PATH=../dclpxsltbox/tests/xsugar/ SAMPLE_FRAGMENTS=0 HTML_OUTPUT=../dclpxsltbox/output/xsugar/issue-tests-coverage.html 2>&1 | tee -a ../dclpxsltbox/output/xsugar/issue-tests-coverage-log.txt
+jruby -Xcompat.version=1.8 -S bundle exec rake coverage:ddb DDB_DATA_PATH=../dclpxsltbox/tests/xsugar-issues/ SAMPLE_FRAGMENTS=0 HTML_OUTPUT=../dclpxsltbox/output/xsugar/issue-tests-coverage.html 2>&1 | tee -a ../dclpxsltbox/output/xsugar/issue-tests-coverage-log.txt
