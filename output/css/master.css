@@ -340,6 +340,11 @@ font-family: Verdana, Helvetica, sans-serif;
 font-size: 80%;
 }
 
+/* Adds styles for tei:lb with rend attributes. */
+.lb.indent, .lb.eisthesis {display:inline-block; width:1.5em;}
+.lb.outdent, .lb.ekthesis {display:inline-block; width:1.5em; margin-left:-3em;}
+.lb {display:none;}
+
 /* Copied from http://papyri.info/global.css */
 .latinnum {
 border-top: thin black solid;
