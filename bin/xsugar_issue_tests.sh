@@ -17,11 +17,11 @@ elif (( $#>1 )); then
 	exit
 elif (( $#<1 )); then
 	echo "no top-level directory specified"
-	echo "usage: testcoverage.sh absolute/or/relative/path/to/top/level/working/directory"
+	echo "usage: xsugar_issue_tests.sh absolute/or/relative/path/to/top/level/working/directory"
 	exit
 fi
 
 set -x #echo on
 
 cd xsugar
-jruby -Xcompat.version=1.8 -S bundle exec rake coverage:ddb DDB_DATA_PATH=../idp.data/DCLP SAMPLE_FRAGMENTS=2 HTML_OUTPUT=../dclpxsltbox/output/xsugar/coverage.html 2>&1 | tee -a ../dclpxsltbox/output/xsugar/coverage-log.txt
+jruby -Xcompat.version=1.8 -S bundle exec rake coverage:ddb DDB_DATA_PATH=../dclpxsltbox/tests/xsugar-issues/ SAMPLE_FRAGMENTS=0 HTML_OUTPUT=../dclpxsltbox/output/xsugar/issue-tests-coverage.html 2>&1 | tee -a ../dclpxsltbox/output/xsugar/issue-tests-coverage-log.txt

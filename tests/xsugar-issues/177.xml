@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>177: Include @corresp in Leiden+</title>
+            </titleStmt>
+            <publicationStmt><ab>For testing purposes only.</ab></publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <idno>
+                            <idno type="invNo" xml:id="SMDH">Dummy idno for testing</idno>
+                        </idno>
+                    </msIdentifier>
+                </msDesc>
+            </sourceDesc>            
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div xml:lang="grc" type="edition" xml:space="preserve" >
+                <div n="1" subtype="column" type="textpart" corresp="#SMDH">
+                    <ab>
+                        <lb n="1"/>αβγδεζη
+                    </ab>
+                </div>
+            </div>
+        </body>
+    </text>
+</TEI>

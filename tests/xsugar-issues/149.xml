@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>149: Leiden+ markup for text restored by comparison with parallel copy</title>
+            </titleStmt>
+            <publicationStmt><ab>For testing purposes only.</ab></publicationStmt>
+            <sourceDesc>
+                <ab>Tests examples drawn from <ref
+                        target="https://github.com/DCLP/dclpxsltbox/issues/149">DCLP Issue
+                        #149</ref></ab>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="edition" xml:space="preserve" xml:lang="grc" >
+                <div n="2" subtype="column" type="textpart">
+                    <ab>  
+                        <lb n="1"/><supplied reason="lost">πείθει</supplied> <supplied evidence="parallel" reason="lost">μέν, <unclear>ο</unclear>ὐ</supplied> πείθε<supplied evidence="parallel" reason="lost">ι</supplied> δὲ 
+                        <lb n="2"/><supplied reason="lost">ῥητορ</supplied>ικῶς ἀλλὰ <supplied evidence="parallel" reason="lost">διαλεκ</supplied> 
+                        <lb n="3" break="no"/><supplied evidence="parallel" reason="lost">τικῶ</supplied>ς <supplied reason="lost">ἢ</supplied> <unclear>δ</unclear><supplied reason="lost">ρ</supplied>ασ<supplied reason="lost">τι</supplied> 
+                        <lb n="4" break="no"/>κῶς, <unclear>ὡ</unclear><supplied reason="lost">ς</supplied> καὶ Φρύνη καὶ ὥρα<supplied reason="lost">ι</supplied> 
+                        <lb n="5"/><supplied reason="lost">κ</supplied>αὶ μουσικῆι πε<supplied evidence="parallel" reason="lost">ί</supplied>θει <supplied evidence="parallel" reason="lost">μ</supplied>έν,  
+                        <lb n="6"/><supplied evidence="parallel" reason="lost">οὐ ῥητορι</supplied>κῶς δὲ <unclear>π</unclear><supplied reason="lost">οιε</supplied>ῖ 
+                        <lb n="7"/><supplied reason="lost">τὰς κα</supplied>τασκευάς. εἰ <supplied evidence="parallel" reason="lost">δ</supplied>έ 
+                        <lb n="8"/><supplied evidence="parallel" reason="lost">πως ὁ</supplied> λόγος <supplied reason="lost">δ</supplied>ύναταί τι  
+                        <lb n="9"/><supplied evidence="parallel" reason="lost">προσά</supplied>γειν ἀ<supplied evidence="parallel" reason="lost">λη</supplied>θές, τῶν 
+                        <lb n="10"/>ἀ<supplied reason="lost">τ</supplied>έχνων οὐ<supplied reason="lost">δ</supplied><supplied evidence="parallel" reason="lost">ὲ</supplied> εἷς ἐν 
+                        <lb n="11"/>τῶ<supplied reason="lost">ι</supplied> τῆς τέχνης ἔργωι  
+                        <lb n="12"/>νικ<supplied evidence="parallel" reason="lost">ᾶ</supplied>ι τὸν τε<supplied reason="lost">χ</supplied>ν<supplied reason="lost">είτην</supplied>, ἐν 
+                        <lb n="13"/><supplied evidence="parallel" reason="lost">δὲ τῶι τῆς</supplied> ῥητορικῆς 
+                        <lb n="14"/><supplied reason="lost">οὐδὲ τοῦ</supplied><supplied evidence="parallel" reason="lost"><unclear>τ</unclear>ο κ</supplied>αθ<supplied evidence="parallel" reason="lost">ολικό</supplied>ν.
+                        <milestone rend="paragraphos" unit="undefined"/>  
+                        <lb n="15"/>ἐ<supplied evidence="parallel" reason="lost">π</supplied>ὶ γὰρ ἐνίων <supplied reason="lost">ὄν</supplied><supplied evidence="parallel" reason="lost">των</supplied> 
+                        <lb n="16"/>στοχαστικῶν <supplied evidence="parallel" reason="lost">ἔσ</supplied><supplied reason="lost">τιν</supplied> ὅ  
+                        <lb n="17" break="no"/>τε νικᾶι τὸν τεχν<supplied evidence="parallel" reason="lost">είτ</supplied>ην 
+                        <lb n="18"/>ὁ ἄτεχνος, ὥ<supplied reason="lost">σπ</supplied><supplied evidence="parallel" reason="lost">ερ καὶ</supplied> <supplied reason="lost">ἐ</supplied>
+                        <lb n="19" break="no"/>π' <supplied reason="lost">ἰα</supplied><supplied evidence="parallel" reason="lost">τρ</supplied><supplied reason="lost">ι</supplied>κῆς <supplied reason="lost">ἀ</supplied><unclear>π</unclear>ο<unclear>λ</unclear><supplied reason="lost">είπε</supplied>σ   
+                        <lb n="20" break="no"/><supplied evidence="parallel" reason="lost">θαι τ</supplied><supplied reason="lost">ὸν</supplied> <unclear>τ</unclear>εχ<supplied evidence="parallel" reason="lost">ν</supplied><supplied reason="lost">εί</supplied>την <supplied reason="lost">ὑφ'</supplied> <unclear>ἑ</unclear>  
+                        <lb n="21" break="no"/>νός τινος τ<supplied evidence="parallel" reason="lost">ῶν κ</supplied>ατὰ μέ 
+                        <lb n="22" break="no"/>ρ<supplied reason="lost">ο</supplied>ς <supplied reason="lost">κα</supplied>θεστώ<supplied reason="lost">των</supplied> τε<supplied reason="lost">χ</supplied>ν<supplied reason="lost">ι</supplied>  
+                        <lb n="23" break="no"/><unclear>τ</unclear><supplied reason="lost">ῶ</supplied>ν, τῶν πά<supplied reason="lost">νυ δ' ἀτέχνων</supplied>
+                        <lb n="24"/>ἀ<unclear>δ</unclear><supplied reason="lost">ύνα</supplied>τον ν<supplied evidence="parallel" reason="lost">οεῖ</supplied><supplied reason="lost">ν. ἀμφισβητε</supplied><supplied evidence="parallel" reason="lost">ῖ</supplied>
+                        <lb n="25" break="no"/>ται δέ, <supplied evidence="parallel" reason="lost">πρὸ</supplied>ς τίνα προ  
+                        <lb n="26" break="no"/>κείμενον· εἰ <unclear>δ</unclear><supplied reason="lost">ὲ τὸν</supplied> ἄτε  
+                        <lb n="27" break="no"/>χνον ὁ λόγος λαμβάνει 
+                        <lb n="28"/>τὸν οὐ διατριβικόν, τὸν  
+                        <lb n="29"/>δὲ τεχνίτην τὸν ἀπὸ 
+                        <lb n="30"/>τῶν διδασκ<supplied reason="lost">αλ</supplied><choice><corr>ε</corr><sic>ν</sic></choice>ίων, οὔ  
+                        <lb n="31" break="no"/>τ<unclear>ε</unclear> <unclear>τ</unclear><supplied reason="lost">ὴν σο</supplied>φισ<supplied reason="lost">τ</supplied>ικὴ<supplied reason="lost">ν</supplied> 
+                        <lb n="32"/><supplied evidence="parallel" reason="lost">μ</supplied>ὴ<supplied evidence="parallel" reason="lost">ν</supplied> <supplied reason="lost">εἶν</supplied>αι τέχνην οὔ<supplied reason="lost">τ</supplied>ε 
+                        <lb n="33"/>τὴν π<unclear>ο</unclear><supplied reason="lost">λι</supplied>τ<supplied reason="lost">ικὴν ἀ</supplied><unclear>π</unclear><supplied reason="lost">ο</supplied>
+                        <lb n="34" break="no"/>δε<supplied reason="lost">ι</supplied>κ<supplied reason="lost">νύοντα, ῥητ</supplied>ορι  
+                        <lb n="35" break="no"/><supplied reason="lost">κ</supplied>ὴν <supplied reason="lost">δὲ</supplied> <gap reason="lost" extent="unknown" unit="character"/>   
+                    </ab>
+                </div>
+            </div>
+        </body>
+    </text>
+</TEI>
