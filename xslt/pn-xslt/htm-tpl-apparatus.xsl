@@ -10,7 +10,7 @@
   <xsl:template name="tpl-apparatus">
     <!-- An apparatus is only created if one of the following is true -->
      <xsl:if test=".//t:choice | .//t:subst | .//t:app |
-       .//t:hi[@rend = 'diaeresis' or @rend = 'grave' or @rend = 'acute' or @rend = 'asper' or @rend = 'lenis' or @rend = 'circumflex'] |
+       .//t:hi[@rend = 'supraline' or @rend = 'diaeresis' or @rend = 'grave' or @rend = 'acute' or @rend = 'asper' or @rend = 'lenis' or @rend = 'circumflex'] |
        .//t:del[@rend='slashes' or @rend='cross-strokes'] | .//t:milestone[@rend = 'box']">
 
          <h2>Apparatus</h2>
@@ -21,7 +21,7 @@
                   * del or milestone.
         -->
             <xsl:for-each select="(.//t:choice | .//t:subst | .//t:app)[not(ancestor::t:*[local-name()=('choice','subst','app')])] |
-               .//t:hi[@rend=('diaeresis','grave','acute','asper','lenis','circumflex')][not(ancestor::t:*[local-name()=('orig','reg','sic','corr','lem','rdg') 
+               .//t:hi[@rend=('supraline','diaeresis','grave','acute','asper','lenis','circumflex')][not(ancestor::t:*[local-name()=('orig','reg','sic','corr','lem','rdg') 
                or self::t:del[@rend='corrected'] 
                or self::t:add[@place='inline']][1][local-name()=('reg','corr','del','rdg')])] |
            .//t:del[@rend='slashes' or @rend='cross-strokes'] | .//t:milestone[@rend = 'box']">

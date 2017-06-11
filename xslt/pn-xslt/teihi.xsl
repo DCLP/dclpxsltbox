@@ -6,7 +6,7 @@
    <xsl:template match="t:hi">
       <xsl:choose>
          <xsl:when
-            test="@rend = 'diaeresis' or @rend = 'grave' or @rend = 'acute' or @rend = 'asper' or @rend = 'lenis' or @rend = 'circumflex'">
+            test="@rend = 'supraline' or @rend = 'diaeresis' or @rend = 'grave' or @rend = 'acute' or @rend = 'asper' or @rend = 'lenis' or @rend = 'circumflex'">
             <xsl:apply-templates/>
             <xsl:choose>
                <xsl:when test="$apparatus-style = 'ddbdp' and

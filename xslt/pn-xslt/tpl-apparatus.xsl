@@ -270,6 +270,15 @@
       </xsl:call-template>
       </xsl:if>
       <xsl:choose>
+         <xsl:when test="@rend = 'supraline'">
+            <xsl:call-template name="trans-string"/>
+            <xsl:if test="t:gap">
+               <xsl:if test="t:gap[@reason='lost']"><xsl:text>[</xsl:text></xsl:if>
+               <xsl:text>&#xa0;&#xa0;&#x323;</xsl:text>
+            </xsl:if>
+            <xsl:text>&#x304;&#x323;</xsl:text>
+            <xsl:if test="t:gap[@reason='lost']"><xsl:text>]</xsl:text></xsl:if>
+         </xsl:when>
          <xsl:when test="@rend = 'diaeresis'">
             <xsl:call-template name="trans-string"/>
             <xsl:if test="t:gap">
