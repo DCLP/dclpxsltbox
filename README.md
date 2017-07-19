@@ -55,30 +55,30 @@ Software installation is necessary to run the XSugar transformation tool for Lei
 
 1. Install Apache Maven:
  
-   on OSX: 
+   on Mac OS X: 
 
    * ```brew install maven```
  
    on Windows:
 
-   * Follow steps mentioned on website : http://maven.apache.org/download.cgi
+   * Follow steps mentioned on website. Download: http://maven.apache.org/download.cgi. Install: http://maven.apache.org/install.html
 
-2. Install Ruby 1.7.26 (this unsupported, down version **is required**) using rbenv:
+2. Install JRuby 1.6.8 (this unsupported, down version **is required**, see [xsugar Issue 16](https://github.com/papyri/xsugar/issues/16) for details):
 
-   on OSX:
+   on Mac OS X, using rbenv:
 
    * ```brew install rbenv```
    * Add the rbenv shim code to your shell startup and resource it. The line to add to your ~/.bash_profile is:
       * ```eval "$(rbenv init -)"```
    * ```brew install ruby-build```
-   * ```rbenv install jruby-1.7.26```
+   * ```rbenv install jruby-1.6.8```
 
    on Windows:
 
-   * Download jruby from [here](http://jruby.org/files/downloads/index.html)
+   * Download JRuby 1.6.8 from [here](http://jruby.org/files/downloads/1.6.8/index.html)
    * Add environment variable “path” and insert value of “path” as location of jruby/bin folder
 
-3. Cd into ```{your-working-directory}/xsugar``` and install the "bundler" Ruby gem: ```gem install bundler```. You may be prompted to install dependencies.
+3. cd into ```{your-working-directory}/xsugar``` and install the "bundler" Ruby gem: ```gem install bundler```. You may be prompted to install dependencies.
 
 4. Run coverage tests to verify installation and configuration. 
 
